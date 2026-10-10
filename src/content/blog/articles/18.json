@@ -1,0 +1,86 @@
+{
+  "id": "18",
+  "title": "مثل یک کیو گریدر بچشید: کاپینگ، چرخ طعم و پرورش ذائقه",
+  "dek": "کاپرهای حرفه‌ای با چند کاسه و یک قاشق قیمت یک محموله را تعیین می‌کنند. پروتکل کاپینگ، زبان چرخ طعم، نظام تازه‌ی CVA و هفت تمرین خانگی برای این‌که قهوه را دقیق‌تر بچشید.",
+  "kicker": "هنر چشیدن",
+  "readMinutes": 16,
+  "words": 3794,
+  "keyTakeaways": [
+    "بیشتر آنچه «طعم» می‌نامیم از بینی می‌آید؛ پرورش ذائقه یعنی ساختن کتابخانه‌ی بوها.",
+    "پروتکل SCA: حدود ۸٫۲۵ گرم قهوه برای ۱۵۰ میلی‌لیتر آب ۹۳ درجه، شکستن کراست پس از ۳ تا ۵ دقیقه و چشیدن از حدود ۷۱ درجه تا ۲۱ درجه.",
+    "چرخ طعم را از مرکز به بیرون بخوانید و هر جا مطمئن نبودید، همان‌جا بایستید.",
+    "از نوامبر ۲۰۲۴ نظام CVA توصیف را از قضاوت جدا کرده و از اکتبر ۲۰۲۵ پایه‌ی گواهی کیو گریدر است.",
+    "محلول‌های مزه‌ی پایه، تمرین اسیدها، تمرین مثلث و کاپینگ خانگی ساده‌ترین راه‌های تمرین در خانه‌اند."
+  ],
+  "sources": [
+    {
+      "title": "Protocols & Best Practices (Cupping Protocol)",
+      "publisher": "Specialty Coffee Association",
+      "url": "https://sca.coffee/research/protocols-best-practices"
+    },
+    {
+      "title": "Coffee Taster's Flavor Wheel",
+      "publisher": "Specialty Coffee Association",
+      "url": "https://sca.coffee/research/coffee-tasters-flavor-wheel",
+      "year": 2016
+    },
+    {
+      "title": "How to Use the Coffee Taster's Flavor Wheel in Eight Steps",
+      "publisher": "Specialty Coffee Association",
+      "url": "https://sca.coffee/sca-news/how-to-use-the-flavor-wheel-in-eight-steps-ab2hy"
+    },
+    {
+      "title": "Sensory Lexicon",
+      "publisher": "World Coffee Research",
+      "url": "https://worldcoffeeresearch.org/resources/sensory-lexicon",
+      "year": 2017
+    },
+    {
+      "title": "Coffee Value Assessment",
+      "publisher": "Specialty Coffee Association",
+      "url": "https://sca.coffee/value-assessment"
+    },
+    {
+      "title": "Evolving the SCA Cupping Protocol and Form: An Overview of the Pilot Testing Process",
+      "publisher": "Specialty Coffee Association (Mario R. Fernández-Alduenda)",
+      "url": "https://sca.coffee/sca-news/read/evolving-the-sca-cupping-protocol-and-form-an-overview-of-the-pilot-testing-process-9cs4s",
+      "year": 2022
+    },
+    {
+      "title": "The SCA Officially Adopts CVA Descriptive and Affective Assessments as New Cupping Standards",
+      "publisher": "Specialty Coffee Association",
+      "url": "https://sca.coffee/sca-news/sca-new-cva-cupping-standards-7ga28",
+      "year": 2024
+    },
+    {
+      "title": "What does the coffee industry think about the \"evolved\" Q?",
+      "publisher": "Perfect Daily Grind",
+      "url": "https://perfectdailygrind.com/2025/05/cva-q-grader-programme-coffee-industry/",
+      "year": 2025
+    },
+    {
+      "title": "Coffee Tasting Exercises That Will Improve Your Palate",
+      "publisher": "Perfect Daily Grind",
+      "url": "https://perfectdailygrind.com/2018/01/coffee-tasting-exercises-that-will-improve-your-palate/",
+      "year": 2018
+    },
+    {
+      "title": "Cupping at Home Part Two: How to Host a Home Cupping for Friends and Family",
+      "publisher": "Barista Magazine",
+      "url": "https://www.baristamagazine.com/cupping-at-home-part-two-how-to-host-a-home-cupping-for-friends-and-family/",
+      "year": 2022
+    },
+    {
+      "title": "Scoring Specialty Coffee - What Do The Numbers Mean?",
+      "publisher": "Royal Coffee",
+      "url": "https://royalcoffee.com/scoring-specialty-coffee-what-do-the-numbers-mean/",
+      "year": 2026
+    },
+    {
+      "title": "Guide To Coffee Cupping",
+      "publisher": "MICHELIN Guide",
+      "url": "https://guide.michelin.com/mo/en/article/features/guide-to-coffee-cupping",
+      "year": 2017
+    }
+  ]
+}

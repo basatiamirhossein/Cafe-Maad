@@ -1,0 +1,83 @@
+{
+  "id": "20",
+  "title": "کافه‌ی آینده: مهمان‌نوازی، اتوماسیون و باریستا در نقش سومِلیه‌ی قهوه",
+  "dek": "وقتی ماشین‌ها وزن پودر و صف سفارش را برعهده می‌گیرند، باریستا وقت پیدا می‌کند میزبان شود. از سیاست لپ‌تاپ تا پرواز چشایی و لیوان چندبارمصرف، کافه‌ی آینده را چطور طراحی کنیم؟",
+  "kicker": "کافه‌داری",
+  "readMinutes": 16,
+  "words": 3788,
+  "keyTakeaways": [
+    "هفت ویژگی «مکان سوم» اولدنبرگ را می‌شود به تصمیم‌های عملی طراحی کافه ترجمه کرد.",
+    "به‌جای ممنوعیت کامل لپ‌تاپ، فضا و ساعت‌ها را منطقه‌بندی کنید؛ میز کار و میز گفت‌وگو هر دو جا دارند.",
+    "تکرار را به ماشین بسپارید (وزن پودر، صف سفارش) و رابطه را به باریستا؛ اتوماسیون نگهداری و کالیبره‌کردن می‌خواهد.",
+    "پرواز چشایی خوب فقط یک متغیر را تغییر می‌دهد و با دو یا سه فنجان، در ساعت آرام، سرو می‌شود.",
+    "در آزمایش دوازده کافه، هزینه روی لیوان یک‌بارمصرف اثر داشت اما تخفیف برای لیوان شخصی نه."
+  ],
+  "sources": [
+    {
+      "title": "Third place",
+      "publisher": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Third_place"
+    },
+    {
+      "title": "Coffee shops ditch WiFi and laptops to limit remote work",
+      "publisher": "Axios",
+      "url": "https://www.axios.com/2025/05/09/coffee-shops-no-wifi-laptops-remote-work",
+      "year": 2025
+    },
+    {
+      "title": "Starbucks South Korea asks customers not to bring desktop computers and printers",
+      "publisher": "Fortune",
+      "url": "https://fortune.com/2025/08/11/starbucks-south-korea-policy-desktop-computer-printer-ban-cagongjok",
+      "year": 2025
+    },
+    {
+      "title": "Author Talks: Hospitality lessons from a Michelin-star restaurateur",
+      "publisher": "McKinsey & Company",
+      "url": "https://www.mckinsey.com/featured-insights/mckinsey-on-books/author-talks-hospitality-lessons-from-a-michelin-star-restaurateur"
+    },
+    {
+      "title": "Brian Niccol's Starbucks 4-minute order and Green Apron Service",
+      "publisher": "Fortune",
+      "url": "https://fortune.com/2025/08/15/brian-niccol-starbucks-4-minute-order-green-apron-service",
+      "year": 2025
+    },
+    {
+      "title": "Starbucks to deploy enhanced staffing model across North America",
+      "publisher": "Yahoo Finance",
+      "url": "https://finance.yahoo.com/news/starbucks-deploy-enhanced-staffing-model-142853660.html",
+      "year": 2025
+    },
+    {
+      "title": "Inside Blank Street's barista training lab",
+      "publisher": "Axios Boston",
+      "url": "https://www.axios.com/local/boston/2023/04/04/barista-blank-street-training",
+      "year": 2023
+    },
+    {
+      "title": "Thermoplan AG",
+      "publisher": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Thermoplan_AG"
+    },
+    {
+      "title": "Instruction Manual E65S GbW",
+      "publisher": "Mahlkönig / Hemro",
+      "url": "https://cdn.shopify.com/s/files/1/0879/4007/1753/files/Mahlkoenig_Instruction_Manual_E65S_GbW.pdf"
+    },
+    {
+      "title": "The best specialist cafés for coffee tasting courses in Tokyo",
+      "publisher": "Time Out Tokyo",
+      "url": "https://timeout.com/tokyo/restaurants/best-specialist-cafes-for-coffee-tasting-courses-in-tokyo"
+    },
+    {
+      "title": "Promoting the Use of Reusable Coffee Cups through Environmental Messaging, the Provision of Alternatives and Financial Incentives",
+      "publisher": "Sustainability (MDPI) — Poortinga & Whitaker",
+      "url": "https://www.mdpi.com/2071-1050/10/3/873",
+      "year": 2018
+    },
+    {
+      "title": "One of Sydney's best cafés has launched NSW's first coffee upcycling program",
+      "publisher": "Time Out Sydney",
+      "url": "https://www.timeout.com/sydney/news/one-of-sydneys-best-cafes-has-launched-nsws-first-coffee-upcycling-program-010726"
+    }
+  ]
+}

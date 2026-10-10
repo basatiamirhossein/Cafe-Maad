@@ -1,0 +1,27 @@
+{
+  "id": "09",
+  "title": "شیر در فنجان: علم شیر گاوی و راهنمای جایگزین‌های گیاهی برای باریستا",
+  "dek": "چرا شیر از یک دمایی به بعد شیرین‌تر نمی‌شود، چرا سویا در قهوه می‌بُرد و جو دوسر نه، و در بطری «باریستا» دقیقاً چه چیزی اضافه شده است؟ علم پروتئین، چربی و لاکتوز، کنار رفتار پنج شیر گیاهی در فنجان.",
+  "kicker": "هنر باریستا",
+  "readMinutes": 15,
+  "words": 3793,
+  "keyTakeaways": [
+    "شیر گاو حدود ۸۷ درصد آب است؛ لاکتوز، چربی و دو خانواده پروتئین (کازئین و آب‌پنیر) در همان ۱۳ درصد باقی‌مانده طعم و کف را می‌سازند.",
+    "حدود ۶۰ تا ۶۵ درجه نقطه‌ی شیرینی و کف پایدار است؛ نزدیک ۸۲ درجه آب‌پنیر واسرشته می‌شود و طعم پخته ظاهر می‌شود.",
+    "بریدن شیر در قهوه به اسید، دما و نسبت بستگی دارد؛ سویا از شیر لبنی بسیار حساس‌تر است و «کمی سویا در قهوه‌ی سیاه» بدترین حالت است.",
+    "جو دوسر در آزمون‌ها پایدارترین شیر گیاهی بود؛ نسخه‌های باریستا با روغن و نمک‌های فسفات برای بخار و قهوه طراحی شده‌اند.",
+    "عدم تحمل لاکتوز را از آلرژی جدا کنید: اولی بسیار رایج است، دومی پیچر جداگانه و دقت کامل می‌خواهد."
+  ],
+  "sources": [
+    {"title": "Composition and Structure: Overview (Dairy Science and Technology eBook)", "publisher": "University of Guelph (H. D. Goff, A. Hill, M. A. Ferrer)", "url": "https://books.lib.uoguelph.ca/dairyscienceandtechnologyebook/chapter/composition-and-structure-overview/"},
+    {"title": "Science of Milk", "publisher": "Difford's Guide", "url": "https://www.diffordsguide.com/g/1113/coffee/science-of-milk"},
+    {"title": "Beakerhead Milk & Coffee Collaboration", "publisher": "Phil & Sebastian Coffee Roasters", "url": "https://philsebastian.com/blogs/news/beakerhead-milk-coffee-collaboration", "year": 2016},
+    {"title": "'Curdling' of soymilk in coffee: A study of the phase behaviour of soymilk coffee mixtures", "publisher": "Food Hydrocolloids (Brown et al.)", "url": "https://doi.org/10.1016/j.foodhyd.2019.04.032", "year": 2019},
+    {"title": "Proteins with purpose: Why milk curdles and how to avoid it", "publisher": "BeanScene Magazine", "url": "https://beanscenemag.com.au/proteins-with-purpose-why-milk-curdles-and-how-to-avoid-it/"},
+    {"title": "Milk Alternatives for Coffee (Tested & Compared)", "publisher": "Seven Miles Coffee Roasters", "url": "https://www.sevenmiles.com.au/editorial/milk-alternatives-for-coffee/", "year": 2020},
+    {"title": "Oatmilk Barista Edition", "publisher": "Oatly", "url": "https://www.oatly.com/en-us/products/oatmilk/oatmilk-barista-edition-32-oz"},
+    {"title": "Original Plant-Based Milk", "publisher": "Ripple Foods", "url": "https://ripplefoods.com/original-plant-milk"},
+    {"title": "Lactose intolerance", "publisher": "MedlinePlus Genetics (U.S. National Library of Medicine)", "url": "https://medlineplus.gov/genetics/condition/lactose-intolerance/"},
+    {"title": "Is Anyone Still Charging Extra for Alt Milk in 2026?", "publisher": "Barista Magazine", "url": "https://www.baristamagazine.com/is-anyone-still-charging-extra-for-alt-milk-in-2026/", "year": 2026}
+  ]
+}

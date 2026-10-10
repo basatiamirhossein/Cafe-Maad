@@ -1,0 +1,84 @@
+{
+  "id": "13",
+  "title": "دم‌آوری دستی برای همه: V60، کمکس، ایروپرس و دستورهایی که قهرمانان استفاده می‌کنند",
+  "dek": "برنده‌ی جهانی ایروپرس کارش را در حدود یک دقیقه تمام کرد و فرنچ‌پرس جیمز هافمن نُه دقیقه و نیم طول می‌کشد. هر دو قهوه‌ی خوبی می‌دهند. با کارت‌های دستور دقیق شش دم‌افزار، منطق پشت اعداد را یاد بگیرید و دستور خودتان را بسازید.",
+  "kicker": "قهوه در خانه",
+  "readMinutes": 16,
+  "words": 3779,
+  "keyTakeaways": [
+    "نسبت، آسیاب، دما و آشفتگی چهار پیچ تنظیم مشترک همه‌ی دم‌افزارهای دستی‌اند؛ در هر بار دم فقط یکی را تغییر دهید.",
+    "هافمن برای هاریو، کمکس و فرنچ‌پرس یک نسبت ثابت دارد: ۳۰ گرم قهوه به ۵۰۰ گرم آب ۱۰۰ درجه.",
+    "در روش ۴:۶ کاسویا، ۴۰ درصد اول آب تعادل شیرینی و اسیدیته را تعیین می‌کند و ۶۰ درصد دوم قدرت را.",
+    "قهرمانان اخیر ایروپرس با حدود ۱۸ گرم قهوه کنسانتره می‌گیرند و بعد رقیقش می‌کنند؛ دستور رسمی سازنده آب ۸۵ درجه می‌خواهد.",
+    "فرنچ‌پرس به روش هافمن را فشار ندهید: کف‌گیری کنید، ۵ تا ۸ دقیقه صبر کنید و پیستون را فقط تا سطح بیاورید."
+  ],
+  "sources": [
+    {
+      "title": "James Hoffmann's Ultimate V60 Recipe",
+      "publisher": "Honest Coffee Guide",
+      "url": "https://honestcoffeeguide.com/brew-recipes/james-hoffmann-v60/",
+      "year": 2023
+    },
+    {
+      "title": "James Hoffmann's Chemex Recipe",
+      "publisher": "Honest Coffee Guide",
+      "url": "https://honestcoffeeguide.com/brew-recipes/james-hoffmann-chemex-recipe/"
+    },
+    {
+      "title": "James Hoffmann's French Press Recipe",
+      "publisher": "Honest Coffee Guide",
+      "url": "https://honestcoffeeguide.com/brew-recipes/james-hoffmann-french-press"
+    },
+    {
+      "title": "How to Make Coffee Using the 4:6 Brewing Method",
+      "publisher": "Philocoffea (Tetsu Kasuya)",
+      "url": "https://en.philocoffea.com/blogs/blog/coffee-brewing-method"
+    },
+    {
+      "title": "6 Of The World's Best Coffee Brewing Recipes In 2016",
+      "publisher": "Sprudge",
+      "url": "https://sprudge.com/world-brewers-cup-102370.html",
+      "year": 2016
+    },
+    {
+      "title": "Recipes (winning recipes by year)",
+      "publisher": "World AeroPress Championship",
+      "url": "https://worldaeropresschampionship.com/recipes"
+    },
+    {
+      "title": "How to Use",
+      "publisher": "AeroPress",
+      "url": "https://aeropress.com/pages/how-to-use"
+    },
+    {
+      "title": "Kalita Wave: The Story & Brewing Guide",
+      "publisher": "Perfect Daily Grind",
+      "url": "https://perfectdailygrind.com/2015/08/kalita-wave-the-story-brewing-guide/",
+      "year": 2015
+    },
+    {
+      "title": "How to brew coffee with the Origami",
+      "publisher": "Perfect Daily Grind",
+      "url": "https://perfectdailygrind.com/2024/01/how-to-brew-coffee-with-origami-pour-over/",
+      "year": 2024
+    },
+    {
+      "title": "Swirl, stir, or leave the bloom: Has specialty coffee decided what's best?",
+      "publisher": "Perfect Daily Grind",
+      "url": "https://perfectdailygrind.com/2025/09/swirl-or-stir-coffee-bloom-best-practices/",
+      "year": 2025
+    },
+    {
+      "title": "Drip and immersion brewing: A battle of two methods",
+      "publisher": "Perfect Daily Grind",
+      "url": "https://perfectdailygrind.com/2019/03/drip-pour-over-vs-immersion-the-battle-of-the-coffee-brew-methods/",
+      "year": 2019
+    },
+    {
+      "title": "Penn researchers use fluid mechanics to improve pour-over coffee quality with fewer beans",
+      "publisher": "The Daily Pennsylvanian",
+      "url": "https://thedp.com/article/2025/04/penn-fluid-physics-coffee-extraction-fewer-beans",
+      "year": 2025
+    }
+  ]
+}

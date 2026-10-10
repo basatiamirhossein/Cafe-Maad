@@ -1,0 +1,100 @@
+{
+  "id": "08",
+  "title": "فراتر از ۹ بار: پروفایل فشار و جریان، توربوشات و اسپرسوی شکوفا",
+  "dek": "عدد ۹ روی فشارسنج نه از آزمایشگاه، که از طول یک اهرم و زور بازوی باریستاهای دهه‌ی ۱۹۴۰ آمد. از اهرم فنری گاجیا تا توربوشات، اسپرسوی شکوفا و آلونژه، ببینید وقتی فشار و جریان آزاد می‌شوند چه اتفاقی در فنجان می‌افتد.",
+  "kicker": "هنر باریستا",
+  "readMinutes": 16,
+  "words": 3761,
+  "keyTakeaways": [
+    "۹ بار حاصل مکانیک اهرم گاجیا و زور بازوی انسان بود و دستگاه E61 در ۱۹۶۱ همان را ثابت کرد؛ دلیل علمی مشخصی پشتش نیست.",
+    "جریان آب در کیک معمولاً میان ۵ تا ۷ بار به سقف می‌رسد، چون فشار بیشتر کیک را فشرده‌تر می‌کند.",
+    "اهرم فنری با اوج حدود ۱۱ بار و افت تا حدود ۵ بار، الگوی فشار نزولی را ساخت که پروفایل‌های امروزی تقلیدش می‌کنند.",
+    "توربوشات: حدود ۱۵ گرم پودر، آسیاب درشت‌تر، حدود ۶ بار و ۴۰ گرم نوشیدنی در حدود ۱۵ ثانیه؛ هدف استخراج یکنواخت‌تر است.",
+    "اسپرسوی شکوفا و آلونژه برای رُست‌های روشن ساخته شده‌اند؛ با رُست تیره، همان شات کلاسیک اغلب انتخاب بهتری است."
+  ],
+  "sources": [
+    {
+      "title": "Nine Bar Pressure: Espresso's Greatest Accident?",
+      "publisher": "Clive Coffee",
+      "url": "https://clivecoffee.com/blogs/learn/nine-bar-pressure-espresso-s-greatest-accident",
+      "year": 2025
+    },
+    {
+      "title": "The Lever Machine",
+      "publisher": "Barista Hustle",
+      "url": "https://www.baristahustle.com/?p=359646"
+    },
+    {
+      "title": "Course lesson on brew pressure, flow and extraction (page title not shown)",
+      "publisher": "Barista Hustle",
+      "url": "https://www.baristahustle.com/?p=242322"
+    },
+    {
+      "title": "Under pressure: poroelastic regulation of flow in espresso brewing (Waszkiewicz et al.)",
+      "publisher": "arXiv",
+      "url": "https://arxiv.org/html/2512.21528v1"
+    },
+    {
+      "title": "Video: Pressure vs. Flow in Espresso Extraction",
+      "publisher": "Prima Coffee",
+      "url": "https://prima-coffee.com/blog/video-pressure-vs-flow-espresso-extraction"
+    },
+    {
+      "title": "Slayer Through the Years: V1, V2, V3, and Beyond",
+      "publisher": "Slayer Espresso",
+      "url": "https://slayerespresso.com/slayer-versions/"
+    },
+    {
+      "title": "Higher Extraction Flow Rates Without Channeling? (Stéphane Ribes)",
+      "publisher": "Decent Espresso",
+      "url": "https://decentespresso.com/doc/higher_flow_rates_without_channeling/",
+      "year": 2020
+    },
+    {
+      "title": "5 espresso profiles for light roasted coffee beans",
+      "publisher": "Decent Espresso",
+      "url": "https://www.decentespresso.com/blog/5_espresso_profiles_for_light_roasted_coffee_beans",
+      "year": 2025
+    },
+    {
+      "title": "All about Blooming espresso",
+      "publisher": "Decent Espresso",
+      "url": "https://decentespresso.com/docs/all_about_blooming_espresso"
+    },
+    {
+      "title": "All about Rao Allongé",
+      "publisher": "Decent Espresso",
+      "url": "https://decentespresso.com/docs/all_about_rao_allong"
+    },
+    {
+      "title": "Delicious Filter Coffee from an Espresso Machine",
+      "publisher": "Scott Rao",
+      "url": "https://scottrao.com/blog/2021/9/28/decent-coffee-shots",
+      "year": 2021
+    },
+    {
+      "title": "UO chemist helps find path to consistently good espresso",
+      "publisher": "University of Oregon",
+      "url": "https://news.uoregon.edu/content/uo-chemist-helps-find-path-consistently-good-espresso",
+      "year": 2020
+    },
+    {
+      "title": "Systematically Improving Espresso: Insights from Mathematical Modeling and Experiment (Cameron et al., Matter 2(3))",
+      "publisher": "Pacific Northwest National Laboratory (abstract)",
+      "url": "https://www.pnnl.gov/publications/systematically-improving-espresso-insights-mathematical-modeling-and-experiment",
+      "year": 2020
+    },
+    {
+      "title": "Turbo Shot Espresso: A Detailed Exploration (Allison Gainey)",
+      "publisher": "CoffeeGeek",
+      "url": "https://coffeegeek.com/opinions/history-technology/turbo-shot-espresso-a-detailed-exploration/",
+      "year": 2025
+    },
+    {
+      "title": "Allongé vs Lungo vs Turbo Shot? Modern Espresso Explained (Asser Christensen)",
+      "publisher": "The Coffee Chronicler",
+      "url": "https://coffeechronicler.com/allonge-vs-lungo-turbo-shot-sprover/",
+      "year": 2021
+    }
+  ]
+}

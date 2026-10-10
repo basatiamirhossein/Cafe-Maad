@@ -1,0 +1,29 @@
+{
+  "id": "15",
+  "title": "نگهداری دستگاه اسپرسو: برنامه تمیزکاری روزانه تا سالانه برای خانه و کافه",
+  "dek": "گاهی تلخی شات از دانه و آسیاب نیست، از روغنی است که پشت توری سرگروه مانده. برنامه‌ی کامل نگهداری، از پرج پنج‌ثانیه‌ای نازل بخار تا سرویس سالانه‌ی تکنسین، با یک هشدار جدی درباره‌ی رسوب‌زدایی.",
+  "kicker": "تجهیزات",
+  "readMinutes": 15,
+  "words": 3765,
+  "keyTakeaways": [
+    "بعد از هر شات سرگروه را فلاش کنید و نازل بخار را به ترتیب پرج، پاک‌کردن و پرج دوباره، تا وقتی گرم است تمیز کنید.",
+    "بک‌فلاش با شوینده در کافه کار روزانه است و در خانه هر چند هفته؛ فقط در دستگاه‌هایی که شیر برقی سه‌راهه دارند.",
+    "واشر و توری سرگروه را در خانه سالی یک بار و در کافه‌ی شلوغ هر سه تا شش ماه عوض کنید.",
+    "رسوب‌زدایی پیشگیرانه در دستگاه‌های بویلری خطرناک است؛ آب مناسب و فیلتر سالم بهترین محافظت است و رسوب‌زدایی هیت‌اکسچنجر، دوبویلر و دستگاه تجاری کار تکنسین است.",
+    "آسیاب هم برنامه دارد: برس هفتگی، قرص تمیزکننده‌ی ماهانه و تمیزکاری تیغه‌ها هر سه تا شش ماه، بدون آب."
+  ],
+  "sources": [
+    {"title": "Espresso Machine Maintenance Schedule", "publisher": "Seattle Coffee Gear", "url": "https://www.seattlecoffeegear.com/blogs/learning-center/espresso-machine-maintenance-schedule"},
+    {"title": "How to Clean Your Coffee Grinder", "publisher": "Seattle Coffee Gear", "url": "https://www.seattlecoffeegear.com/blogs/learning-center/how-to-clean-coffee-grinder"},
+    {"title": "Commercial Espresso Machine Preventive Maintenance Checklist for Cafés", "publisher": "Espresso Parts", "url": "https://www.espressoparts.com/blogs/news/preventive-maintenance-for-your-commercial-equipment-monthly-quarterly-and-annual-basics"},
+    {"title": "The definitive way to backflush your espresso machine", "publisher": "La Marzocco NZ", "url": "https://nz.lamarzocco.com/news/blog/the-definitive-way-to-backflush-your-espresso-machine/", "year": 2026},
+    {"title": "How To Properly Clean Your Espresso Machine", "publisher": "La Marzocco Home (Australia)", "url": "https://au.lamarzoccohome.com/blog/how-to-clean-your-espresso-machine/", "year": 2025},
+    {"title": "Preventative Maintenance Checklist: Linea PB 6 Month Service", "publisher": "La Marzocco USA", "url": "https://cdn.shopify.com/s/files/1/0567/8563/3459/files/linea_pb_6_month_pm_new-1.pdf"},
+    {"title": "Espresso Machine Cleaning - When and Why", "publisher": "Home-Barista", "url": "https://www.home-barista.com/espresso-machine-cleaning-schedule.html"},
+    {"title": "Espresso Machine Cleaning - Why, How, and When", "publisher": "Home-Barista", "url": "https://www.home-barista.com/espresso-machine-cleaning.html"},
+    {"title": "How to Clean an Espresso Steam Wand", "publisher": "Clive Coffee", "url": "https://clivecoffee.com/blogs/faqs/how-to-clean-an-espresso-steam-wand-clive-coffee"},
+    {"title": "La Marzocco Linea Mini: Group Cleaning and Maintenance", "publisher": "Clive Coffee", "url": "https://support.clivecoffee.com/en/articles/16426731-la-marzocco-linea-mini-group-cleaning-and-maintenance"},
+    {"title": "Water: Descaling Your Espresso Machine", "publisher": "Clive Coffee", "url": "https://support.clivecoffee.com/en/descaling-your-espresso-machine"},
+    {"title": "Should You Descale an Espresso Machine?", "publisher": "Pro Coffee Gear", "url": "https://procoffeegear.com/blogs/articles/should-you-descale-an-espresso-machine", "year": 2026}
+  ]
+}

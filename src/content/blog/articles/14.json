@@ -1,0 +1,77 @@
+{
+  "id": "14",
+  "title": "آب، ۹۸ درصدِ فراموش‌شده: شیمی آب برای قهوه و اسپرسو",
+  "dek": "دانه فقط یکی دو درصد فنجان است و بقیه‌اش آب. بفهمید سختی و قلیائیت با طعم و با بویلر دستگاه چه می‌کنند، کدام تصفیه به کارتان می‌آید و چطور آب قهوه را خودتان بسازید.",
+  "kicker": "علم دم‌آوری",
+  "readMinutes": 16,
+  "words": 3791,
+  "keyTakeaways": [
+    "سختی (کلسیم و منیزیم) به استخراج طعم کمک می‌کند و قلیائیت (بی‌کربنات) اسیدیته را خنثی می‌کند؛ هر دو را با هم بسنجید.",
+    "هدف SCA: سختی کلسیمی ۶۸ ppm (۱۷ تا ۸۵)، قلیائیت حدود ۴۰ ppm، TDS حدود ۱۵۰ و سدیم حدود ۱۰ میلی‌گرم در لیتر.",
+    "آب سخت و پربی‌کربنات رسوب می‌گذارد؛ کلرید بالای حدود ۳۰ ppm و آب مقطر یا RO خالص فلز دستگاه را تهدید می‌کنند.",
+    "سختی‌گیر سدیمی قلیائیت را کم نمی‌کند و سدیم را بالا می‌برد؛ کارتریج بای‌پس یا RO با ترکیب و معدنی‌سازی برای قهوه مناسب‌ترند.",
+    "با نمک اپسوم، جوش شیرین و آب مقطر می‌توانید کنسانتره بسازید و به سختی حدود ۸۰ و قلیائیت حدود ۴۰ برسید."
+  ],
+  "sources": [
+    {
+      "title": "Water for Coffee Extraction",
+      "publisher": "Coffee ad Astra (Jonathan Gagné)",
+      "url": "https://coffeeadastra.com/2018/12/16/water-for-coffee-extraction/",
+      "year": 2018
+    },
+    {
+      "title": "Water Composition & Espresso Flavor Explained",
+      "publisher": "Clive Coffee",
+      "url": "https://clivecoffee.com/blogs/learn/the-science-of-water-composition-in-espresso",
+      "year": 2017
+    },
+    {
+      "title": "The Importance of Water and Your Espresso Machine",
+      "publisher": "Clive Coffee",
+      "url": "https://clivecoffee.com/blogs/learn/the-importance-of-water-and-your-espresso-machine",
+      "year": 2016
+    },
+    {
+      "title": "How to Build a DIY Water Recipe for Espresso at Home",
+      "publisher": "Clive Coffee",
+      "url": "https://clivecoffee.com/blogs/faqs/how-to-build-a-diy-water-recipe-for-espresso-at-home-clive-coffee"
+    },
+    {
+      "title": "How Water Chemistry Affects Espresso Machines: Hardness, Chloride, Scale, and RO Water",
+      "publisher": "Espresso Parts",
+      "url": "https://www.espressoparts.com/blogs/news/how-water-chemistry-affects-espresso-machines-hardness-chloride-scale-and-ro-water",
+      "year": 2026
+    },
+    {
+      "title": "Influence of divalent cations on the extraction of organic acids in coffee determined by GC-MS and NMR",
+      "publisher": "Heliyon (Bratthäll, Figueira, Nording)",
+      "url": "https://doaj.org/article/32b12f7ec2a54c689511ea241d4a4a37",
+      "year": 2024
+    },
+    {
+      "title": "3M TFS450 Reverse Osmosis System Spec Sheet",
+      "publisher": "3M",
+      "url": "https://cdn.shopify.com/s/files/1/0706/9027/5647/files/3M_TFS450_RO_Spec_Sheet.pdf"
+    },
+    {
+      "title": "Datasheet PURITY C Quell ST Advanced",
+      "publisher": "Vivreau / BRITA",
+      "url": "https://cdn.shopify.com/s/files/1/0007/5094/4314/files/Datasheet_VIVREAU_PURITY_C_Quell_ST_Advanced.pdf"
+    },
+    {
+      "title": "Hard water",
+      "publisher": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Hard_water"
+    },
+    {
+      "title": "Carbonate hardness",
+      "publisher": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Carbonate_hardness"
+    },
+    {
+      "title": "Water softening",
+      "publisher": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Water_softening"
+    }
+  ]
+}

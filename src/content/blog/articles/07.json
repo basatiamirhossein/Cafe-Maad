@@ -1,0 +1,87 @@
+{
+  "id": "07",
+  "title": "آسیاب، قهرمان گمنام: چرا آسیاب مهم‌تر از دستگاه اسپرسوست",
+  "dek": "دستگاه دما و فشار را تنظیم می‌کند، اما فیلتری که آب از آن می‌گذرد را آسیاب می‌سازد. از هندسه‌ی تیغه تا الکتریسیته‌ی ساکن و پودر کهنه‌ی مانده در آسیاب، هر آنچه پیش از خرید و هر صبح باید بدانید.",
+  "kicker": "تجهیزات",
+  "readMinutes": 16,
+  "words": 3782,
+  "keyTakeaways": [
+    "بودجه را مساوی تقسیم نکنید؛ دستگاه متوسط با آسیاب خوب بهتر از دستگاه گران با آسیاب ضعیف است.",
+    "تیغه‌ی تخت معمولاً توزیع تک‌قله‌ای و طعم شفاف‌تر می‌دهد و تیغه‌ی مخروطی ریزه‌ی بیشتر و بدنه‌ی پرتر، اما هم‌پوشانی دو گروه زیاد است.",
+    "ماندگاری آسیاب از حدود ۰٫۱ تا ۱۲ گرم متغیر است؛ پودر کهنه طعم و تنظیم درجه را گمراه می‌کند، پس تخلیه یا تک‌دوز کنید.",
+    "چند قطره آب پیش از آسیاب (RDT) الکتریسیته‌ی ساکن و کلوخه را کم می‌کند؛ در یک پژوهش غلظت اسپرسو تا ۱۵٪ بالا رفت.",
+    "عمر تیغه را سازندگان از حدود ۳۰۰ تا ۱۵۰۰ کیلوگرم اعلام می‌کنند؛ از نیمه‌ی این عمر به نشانه‌های فرسودگی توجه کنید."
+  ],
+  "sources": [
+    {
+      "title": "Deep Dive: Coffee Grinder Burrs",
+      "publisher": "Counter Culture Coffee",
+      "url": "https://www.counterculturecoffee.com/blogs/counter-culture-coffee/deep-dive-coffee-grinder-burrs"
+    },
+    {
+      "title": "Flat vs Conical Burr",
+      "publisher": "Mahlkönig",
+      "url": "https://www.mahlkoenig.com/blogs/news/flat-vs-conical-burr"
+    },
+    {
+      "title": "Espresso Machine vs. Grinder: Where to Invest More",
+      "publisher": "Clive Coffee",
+      "url": "https://clivecoffee.com/blogs/learn/espresso-machine-vs-grinder-where-to-invest-more-clive-coffee",
+      "year": 2026
+    },
+    {
+      "title": "Grind Retention: What, why, and is it a big deal?",
+      "publisher": "Clive Coffee",
+      "url": "https://clivecoffee.com/blogs/learn/grind-retention"
+    },
+    {
+      "title": "Reducing Static in your Grinder",
+      "publisher": "Clive Coffee",
+      "url": "https://clivecoffee.com/blogs/learn/reducing-static-in-your-grinder",
+      "year": 2019
+    },
+    {
+      "title": "Water spray (RDT) against static (Wasserspray RDT)",
+      "publisher": "Kaffeemacher",
+      "url": "https://kaffeemacher.de/en/blogs/kaffeewissen/wasserspray-rdt"
+    },
+    {
+      "title": "Retention (Totraum) in espresso grinders",
+      "publisher": "Kaffeemacher",
+      "url": "https://kaffeemacher.ch/en/blog/totraum"
+    },
+    {
+      "title": "Single-dosing grinders comparison test, €500–1,000",
+      "publisher": "Kaffeemacher",
+      "url": "https://kaffeemacher.de/en/blogs/kaffeewissen/single-dosing-muehlen-vergleichstest-500-1000"
+    },
+    {
+      "title": "What Size Burrs Do I Need?",
+      "publisher": "Cliff & Pebble",
+      "url": "https://cliffandpebble.com/blogs/our-blog/what-size-burrs-do-i-need"
+    },
+    {
+      "title": "Grinder Burr Maintenance",
+      "publisher": "Espresso Parts",
+      "url": "https://www.espressoparts.com/blogs/barista-basics-tutorials/grinder-burr-maintenance"
+    },
+    {
+      "title": "Grind by Weight",
+      "publisher": "Seven Miles Coffee Roasters",
+      "url": "https://www.sevenmiles.com.au/editorial/grind-by-weight/",
+      "year": 2019
+    },
+    {
+      "title": "Water Reduces Ground Coffee's Charge (on Méndez Harper, Hendon et al., Matter 2023)",
+      "publisher": "APS Physics Magazine",
+      "url": "https://physics.aps.org/articles/v17/2",
+      "year": 2024
+    },
+    {
+      "title": "Chill Coffee Beans to Brew Tastier Beverage, Say Researchers (on Uman et al., Scientific Reports 2016)",
+      "publisher": "Sci.News",
+      "url": "https://www.sci.news/othersciences/physicalchemistry/chill-coffee-beans-tastier-beverage-03951.html",
+      "year": 2016
+    }
+  ]
+}

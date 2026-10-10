@@ -1,0 +1,86 @@
+{
+  "id": "16",
+  "title": "رازهای رست: از رست روشن تا تیره، و چرا قهوه تازه‌رست باید استراحت کند",
+  "dek": "قهوه‌ی دیروز رست‌شده لزوماً بهترین قهوه نیست. از واکنش میلارد و ترک اول تا گاز کربنیکی که هفته‌ها در دانه می‌ماند: بدانید رست چه می‌سازد و دانه کی به اوجش می‌رسد.",
+  "kicker": "از مزرعه تا رست",
+  "readMinutes": 16,
+  "words": 3792,
+  "keyTakeaways": [
+    "میلارد از حدود ۱۵۰ درجه و کاراملی‌شدن از حدود ۱۷۰ درجه شروع می‌شود؛ ترک اول حدود ۱۹۶ و ترک دوم حدود ۲۲۴ درجه است.",
+    "نسبت زمان توسعه (DTR) نقطه‌ی مرجع است نه قانون؛ اسکات رائو برای بیشتر رست‌ها ۲۰ تا ۲۵ درصد را ترجیح می‌دهد.",
+    "در مقیاس آگترون عدد بالاتر یعنی رست روشن‌تر؛ رست تیره تا حدود یک‌ششم اسید کلروژنیک دانه‌ی سبز را نگه می‌دارد.",
+    "رست تیره بیش از سه برابر رست روشن گاز می‌دهد و آسیاب‌کردن تا ۷۵ درصد گاز را تقریباً فوراً آزاد می‌کند.",
+    "نقطه‌ی شروع: فیلتر چند روز، اسپرسو حدود یک هفته تا ده روز استراحت؛ سرما پیر شدن را کند می‌کند و هر ۱۰ درجه خنک‌تر سرعت گاززدایی را تقریباً نصف می‌کند."
+  ],
+  "sources": [
+    {
+      "title": "Time-Resolved Gravimetric Method To Assess Degassing of Roasted Coffee",
+      "publisher": "Journal of Agricultural and Food Chemistry (Smrke et al., ZHAW)",
+      "url": "https://pubs.acs.org/doi/10.1021/acs.jafc.7b03310",
+      "year": 2018
+    },
+    {
+      "title": "A Scientific Approach to Coffee Freshness – Chahan Yeretzian (Expo Lectures 2018)",
+      "publisher": "SCA News podcast",
+      "url": "https://scanews.coffee/podcast/53/a-scientific-approach-to-coffee-freshness-chahan-yeretzian-expo-lectures-2018/",
+      "year": 2018
+    },
+    {
+      "title": "The effect of bean origin and temperature on grinding roasted coffee",
+      "publisher": "Scientific Reports (Uman, Hendon et al.)",
+      "url": "https://www.nature.com/articles/srep24483",
+      "year": 2016
+    },
+    {
+      "title": "Quantification of Caffeine and Chlorogenic Acid in Green and Roasted Coffee Samples Using HPLC-DAD and Evaluation of the Effect of Degree of Roasting on Their Levels",
+      "publisher": "Molecules (Awwad et al.)",
+      "url": "https://www.mdpi.com/1420-3049/26/24/7502",
+      "year": 2021
+    },
+    {
+      "title": "Alterations in pH of Coffee Bean Extract and Properties of Chlorogenic Acid Based on the Roasting Degree",
+      "publisher": "Foods (Kim et al.)",
+      "url": "https://www.mdpi.com/2304-8158/13/11/1757",
+      "year": 2024
+    },
+    {
+      "title": "What Happens During Coffee Roasting: The Chemical Changes",
+      "publisher": "Perfect Daily Grind",
+      "url": "https://perfectdailygrind.com/2019/03/what-happens-during-coffee-roasting-the-chemical-changes/",
+      "year": 2019
+    },
+    {
+      "title": "Development Time Ratio",
+      "publisher": "Scott Rao",
+      "url": "https://www.scottrao.com/blog/2016/8/25/development-time-ratio",
+      "year": 2016
+    },
+    {
+      "title": "Resting Roasts: Is Fresher Better?",
+      "publisher": "Scott Rao",
+      "url": "https://www.scottrao.com/blog/restingbeans"
+    },
+    {
+      "title": "Development Time Ratio (DTR) in Coffee Roasting: What It Is and How to Use It",
+      "publisher": "Green Coffee Collective",
+      "url": "https://greencoffeecollective.com/blogs/learn/coffee-development-time-ratio",
+      "year": 2026
+    },
+    {
+      "title": "Roast Definitions",
+      "publisher": "Coffee Review",
+      "url": "https://www.coffeereview.com/roast-definitions/"
+    },
+    {
+      "title": "The Importance of Resting Coffee After Roasting",
+      "publisher": "Rave Coffee",
+      "url": "https://ravecoffee.co.uk/blogs/news/resting-coffee",
+      "year": 2022
+    },
+    {
+      "title": "Coffee roasting",
+      "publisher": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Coffee_roasting"
+    }
+  ]
+}

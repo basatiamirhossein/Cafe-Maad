@@ -1,0 +1,85 @@
+{
+  "id": "11",
+  "title": "انقلاب قهوه سرد: کلدبرو، فلش‌برو، اسپرسو تونیک و آیس‌لاته‌ی کامل",
+  "dek": "سه‌چهارم نوشیدنی‌های بزرگ‌ترین زنجیره‌ی قهوه‌ی جهان حالا سرد است. اما دم‌سرد واقعاً کم‌اسید و پرکافئین است؟ با پژوهش‌های تازه سراغ شیمی روش‌های سرد و دستورهای عملی آن‌ها می‌رویم.",
+  "kicker": "ترندها",
+  "readMinutes": 17,
+  "words": 3780,
+  "keyTakeaways": [
+    "در آزمایش دانشگاه جفرسون کافئین و اسید کلروژنیک دم‌سرد در حدود ۴۰۰ دقیقه به تعادل رسیدند؛ زمان بیشتر را با چشیدن تنظیم کنید، نه با عادت.",
+    "pH دم‌سرد و دم داغ تقریباً یکی است (۴٫۸۵ تا ۵٫۱۳)؛ دم‌سرد اسیدیته‌ی قابل تیتر و ظرفیت آنتی‌اکسیدانی کمتری دارد.",
+    "دم‌سرد در نسبت برابر کافئین بیشتری می‌دهد، اما غلظت نهایی و رقیق‌سازی بزرگ‌ترین متغیر کافئین لیوان است.",
+    "قهوه‌ی سرد ژاپنی و فلش‌برو با دم داغ و سرمایش فوری، عطر و اسیدیته‌ی روشن دانه را نگه می‌دارند.",
+    "دم‌سرد مرحله‌ی گرمایی ندارد؛ در یخچال دم کنید، بهداشت را از ابتدا رعایت کنید و آن را بیش از چند هفته نگه ندارید."
+  ],
+  "sources": [
+    {
+      "title": "The Effect of Time, Roasting Temperature, and Grind Size on Caffeine and Chlorogenic Acid Concentrations in Cold Brew Coffee",
+      "publisher": "Scientific Reports (Fuller & Rao)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5740146/",
+      "year": 2017
+    },
+    {
+      "title": "Acidity and Antioxidant Activity of Cold Brew Coffee",
+      "publisher": "Scientific Reports (Rao & Fuller)",
+      "url": "https://www.nature.com/articles/s41598-018-34392-w",
+      "year": 2018
+    },
+    {
+      "title": "Why does cold brew taste different to other coffee brewing methods?",
+      "publisher": "Perfect Daily Grind",
+      "url": "https://perfectdailygrind.com/2023/04/why-does-cold-brew-taste-different/",
+      "year": 2023
+    },
+    {
+      "title": "The coffee industry needs to take food safety for cold brew seriously",
+      "publisher": "Perfect Daily Grind",
+      "url": "https://perfectdailygrind.com/2023/10/cold-brew-safety/",
+      "year": 2023
+    },
+    {
+      "title": "How much caffeine is in cold brew coffee?",
+      "publisher": "Perfect Daily Grind",
+      "url": "https://perfectdailygrind.com/2021/11/how-much-caffeine-is-in-cold-brew-coffee/",
+      "year": 2021
+    },
+    {
+      "title": "How To Make Japanese Iced Coffee",
+      "publisher": "Perfect Daily Grind",
+      "url": "https://perfectdailygrind.com/2015/02/how-to-make-japanese-iced-coffee/",
+      "year": 2015
+    },
+    {
+      "title": "Can cold brew coffee make you sick?",
+      "publisher": "University of Georgia CAES Field Report",
+      "url": "https://fieldreport.caes.uga.edu/news/can-cold-brew-coffee-make-you-sick/",
+      "year": 2024
+    },
+    {
+      "title": "Flash Brew (Mark Van Streefkerk)",
+      "publisher": "Barista Magazine",
+      "url": "https://cdn.shopify.com/s/files/1/0035/9372/files/Flash_Brew_article.pdf?1355"
+    },
+    {
+      "title": "Evaluating Iced Coffee Methods",
+      "publisher": "Cook's Illustrated",
+      "url": "https://www.americastestkitchen.com/cooksillustrated/how_tos/8621-evaluating-iced-coffee-methods"
+    },
+    {
+      "title": "Starbucks follows latest trends with new launches: Iced coffee even in the dead of winter",
+      "publisher": "Gulf News / Bloomberg",
+      "url": "https://gulfnews.com/amp/story/business%2Fretail%2Fstarbucks-follows-latest-trends-with-new-launches-iced-coffee-even-in-the-dead-of-winter-1.1692799470706",
+      "year": 2023
+    },
+    {
+      "title": "Espresso and tonic",
+      "publisher": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Espresso_and_tonic"
+    },
+    {
+      "title": "Widget (beer)",
+      "publisher": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Widget_(beer)"
+    }
+  ]
+}
