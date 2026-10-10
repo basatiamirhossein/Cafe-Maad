@@ -1,0 +1,73 @@
+{
+  "id": "02",
+  "title": "راهنمای کامل خرید اسپرسوساز خانگی: تک‌بویلر، هیت‌اکسچنجر، دوبویلر یا ترموبلاک؟",
+  "dek": "چراغ سبز دستگاه دروغ نمی‌گوید، اما همه‌ی حقیقت را هم نمی‌گوید. پیش از خرید، بدانید چهار معماری گرمایشی با صبح‌های شما چه می‌کنند و چرا آسیاب به اندازه‌ی خود دستگاه مهم است.",
+  "kicker": "قهوه در خانه",
+  "readMinutes": 17,
+  "words": 4149,
+  "keyTakeaways": [
+    "معماری گرمایش (ترموبلاک، تک‌بویلر، هیت‌اکسچنجر، دوبویلر) زمان گرم‌شدن، دم و بخار هم‌زمان و پایداری دما را تعیین می‌کند.",
+    "چراغ آماده فقط بویلر را نشان می‌دهد؛ سرگروه E61 برای گرم‌شدن کامل ۲۰ تا ۳۰ دقیقه زمان می‌خواهد.",
+    "PID نوسان دما را از حدود ۲ درجه به حدود ۰٫۲ درجه می‌رساند؛ در هیت‌اکسچنجر فلاش خنک‌کننده بخشی از کار است.",
+    "عدد ۱۵ یا ۲۰ بار روی جعبه معیار کیفیت نیست؛ فشار دم را شیر OPV در حدود ۹ بار محدود می‌کند.",
+    "دست‌کم یک‌چهارم و ترجیحاً یک‌سوم بودجه را برای آسیاب کنار بگذارید."
+  ],
+  "sources": [
+    {
+      "title": "How Long to Wait for an E61 Machine to Heat Up?",
+      "publisher": "Clive Coffee",
+      "url": "https://clivecoffee.com/blogs/learn/how-long-to-wait-for-an-e61-machine-to-heat-up"
+    },
+    {
+      "title": "Saturated vs. E61 Group Head: What's the Difference?",
+      "publisher": "Clive Coffee",
+      "url": "https://clivecoffee.com/blogs/learn/saturated-vs-e61-group-head-whats-the-difference-clive-coffee"
+    },
+    {
+      "title": "The Pump: The Heart of Your Espresso Machine",
+      "publisher": "Clive Coffee",
+      "url": "https://www.clivecoffee.com/blogs/learn/the-pump-the-heart-of-your-espresso-machine",
+      "year": 2017
+    },
+    {
+      "title": "How Much Should I Spend on a Home Espresso Machine?",
+      "publisher": "Clive Coffee",
+      "url": "https://clivecoffee.com/blogs/faqs/how-much-should-i-spend-on-a-home-espresso-machine-clive-coffee"
+    },
+    {
+      "title": "Single Boiler vs Dual Boiler vs Heat Exchanger: Which Espresso Machine is Right for You?",
+      "publisher": "Espresso Coffee Shop",
+      "url": "https://www.espressocoffeeshop.co.uk/blog/post/19-single-boiler-vs-dual-boiler-vs-heat-exchanger-espresso-machine",
+      "year": 2026
+    },
+    {
+      "title": "Thermoblock Vs. Boiler Espresso Machines",
+      "publisher": "Seattle Coffee Gear",
+      "url": "https://www.seattlecoffeegear.com/blogs/scg-blog/thermoblock-vs-boiler-espresso-machines",
+      "year": 2024
+    },
+    {
+      "title": "Pump Bar Pressure and Why You Shouldn't Care",
+      "publisher": "Whole Latte Love",
+      "url": "https://www.wholelattelove.com/blogs/tech-tips/pump-bar-pressure-and-why-you-shouldn-t-care",
+      "year": 2021
+    },
+    {
+      "title": "Do I need a PID temperature controller?",
+      "publisher": "Fine Coffee Company",
+      "url": "https://www.finecoffeecompany.com/really-need-pid-temperature-controller/",
+      "year": 2024
+    },
+    {
+      "title": "Which espresso machine is right for me? (Welche Espressomaschine passt zu mir?)",
+      "publisher": "Kaffeemacher",
+      "url": "https://kaffeemacher.de/en/blogs/kaffeewissen/espressomaschine",
+      "year": 2019
+    },
+    {
+      "title": "Managing HX Brew Temperature (HX Love)",
+      "publisher": "Home-Barista",
+      "url": "https://www.home-barista.com/hx-love-manage-brew-temperature.html"
+    }
+  ]
+}

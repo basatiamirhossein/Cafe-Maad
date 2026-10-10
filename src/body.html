@@ -1,0 +1,324 @@
+<a class="skip" href="#main" data-i18n="skip"></a>
+<div class="backdrop" aria-hidden="true"></div>
+
+<div class="frame">
+  <header class="nav" id="nav">
+    <a class="logo" href="#/" aria-label="Cafe Maad"><svg aria-hidden="true"><use href="#logo"/></svg><span><b data-i18n="brand"></b><small>CAFE · MAAD</small></span></a>
+    <ul class="nav-links" id="nav-links"></ul>
+    <div class="nav-end">
+      <div class="lang" role="group" aria-label="Language / زبان / اللغة / Dil">
+        <button type="button" lang="fa" data-lang="fa" aria-pressed="true">فا</button>
+        <button type="button" lang="en" data-lang="en" aria-pressed="false">EN</button>
+        <button type="button" lang="ar" data-lang="ar" aria-pressed="false">ع</button>
+        <button type="button" lang="tr" data-lang="tr" aria-pressed="false">TR</button>
+      </div>
+      <button class="icon-btn" type="button" id="cart-btn" aria-haspopup="dialog" aria-controls="drawer" data-i18n-aria="cart"><svg aria-hidden="true"><use href="#i-cart"/></svg><span class="badge num" id="cart-count">0</span></button>
+      <a class="btn btn--navy btn--sm shop-pill" href="#/order" data-i18n="orderNow"></a>
+      <button class="icon-btn menu-btn" type="button" aria-expanded="false" aria-controls="nav-links" data-i18n-aria="menuOpen"><svg aria-hidden="true"><use href="#i-menu"/></svg></button>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+
+    <!-- HOME -->
+    <div class="page" data-page="home">
+      <section class="sec hero" aria-labelledby="hero-title">
+        <div>
+          <span class="eyebrow" data-i18n="heroEyebrow"></span>
+          <h1 id="hero-title" data-i18n-html="heroTitle"></h1>
+          <p class="lead" data-i18n="heroLead"></p>
+          <div class="ctas">
+            <a class="btn btn--navy" href="#/order"><span data-i18n="heroCta1"></span><svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn--ghost" href="#/products" data-i18n="heroCta2"></a>
+          </div>
+          <ul class="cats-mini" data-cats></ul>
+        </div>
+        <div class="hero-art">
+          <img class="cup" src="{{IMG:cup-hero}}" alt="" width="720" height="720">
+          <div class="bubble bubble--fresh"><span class="dot"></span><span><b data-i18n="tagA"></b><small data-i18n="tagAs"></small></span></div>
+          <div class="bubble bubble--price"><small data-i18n="tagB"></small><b class="num" id="tag-price"></b></div>
+        </div>
+      </section>
+
+      <section class="sec sec--flush" aria-label="Cafe Maad"><ul class="why" data-perks></ul></section>
+
+      <section class="sec sec--flush" aria-labelledby="hp-title">
+        <div class="sec-head">
+          <div><span class="eyebrow" data-i18n="pEyebrow"></span><h2 class="h2" id="hp-title" data-i18n="pTitle"></h2><p class="lead" data-i18n="pLead"></p></div>
+          <a class="btn btn--ghost" href="#/products/beans"><span data-i18n="pAll"></span><svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="cards" data-blend-cards></div>
+      </section>
+
+      <section class="sec story" aria-labelledby="s-title">
+        <div class="latte" data-latte>
+          <img class="cup" src="{{IMG:cup-big}}" alt="" width="900" height="900">
+          <div class="bubble"><small data-i18n="sBubble"></small><b data-i18n="sBubbleB"></b></div>
+        </div>
+        <div>
+          <span class="eyebrow" data-i18n="sEyebrow"></span>
+          <h2 class="h2" id="s-title" data-i18n="sTitle"></h2>
+          <p class="lead" data-i18n="sLead"></p>
+          <div class="facts" data-facts></div>
+          <a class="btn btn--navy" href="#/about"><span data-i18n="sCta"></span><svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </section>
+
+      <section class="sec builder" aria-labelledby="hb-title">
+        <div class="builder-copy">
+          <span class="eyebrow" data-i18n="bEyebrow"></span>
+          <h2 class="h2" id="hb-title" data-i18n="bTitle"></h2>
+          <p class="lead" data-i18n="bLead"></p>
+          <ul><li data-i18n="b1"></li><li data-i18n="b2"></li><li data-i18n="b3"></li></ul>
+        </div>
+        <div class="builder-ui" data-builder="home"></div>
+      </section>
+
+      <section class="sec" aria-labelledby="shop-title">
+        <div class="sec-head">
+          <div><span class="eyebrow" data-i18n="shopEyebrow"></span><h2 class="h2" id="shop-title" data-i18n="shopTitle"></h2></div>
+          <a class="btn btn--ghost" href="#/products/gear"><span data-i18n="shopAll"></span><svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="tabs" role="tablist" data-home-tabs></div>
+        <div class="cards" data-home-shop role="tabpanel"></div>
+      </section>
+
+      <section class="sec sec--flush" aria-label="Contact"><div data-visit></div></section>
+
+      <section class="sec" aria-labelledby="hblog-title">
+        <div class="sec-head">
+          <div><span class="eyebrow" data-i18n="blogEyebrow"></span><h2 class="h2" id="hblog-title" data-i18n="blogTitle"></h2></div>
+          <a class="btn btn--ghost" href="#/blog"><span data-i18n="blogAll"></span><svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="posts" data-latest></div>
+      </section>
+    </div>
+
+    <!-- PRODUCTS -->
+    <div class="page" data-page="products" hidden>
+      <section class="sec page-head">
+        <nav class="crumbs" aria-label="breadcrumb"><a href="#/" data-i18n="home"></a><span aria-hidden="true">/</span><span data-i18n="navProducts"></span></nav>
+        <h1 class="h1" data-i18n="prodTitle"></h1>
+        <p class="lead" data-i18n="prodLead"></p>
+        <div class="cat-tiles" role="tablist" data-i18n-aria="navProducts" id="cat-tiles"></div>
+      </section>
+      <section class="sec sec--flush" id="cat-beans" aria-labelledby="beans-h">
+        <div class="sec-head"><div><span class="eyebrow" data-i18n="c1"></span><h2 class="h2" id="beans-h" data-i18n="pTitle"></h2><p class="lead" data-i18n="pLead"></p></div></div>
+        <div class="cards" data-blend-cards></div>
+        <div class="builder builder--page" id="beans-builder">
+          <div class="builder-copy">
+            <span class="eyebrow" data-i18n="bEyebrow"></span>
+            <h2 class="h2" data-i18n="bTitle"></h2>
+            <p class="lead" data-i18n="bLead"></p>
+            <div class="grind-guide" data-grind-guide></div>
+          </div>
+          <div class="builder-ui" data-builder="products"></div>
+        </div>
+      </section>
+      <section class="sec sec--flush" id="cat-items" aria-labelledby="items-h" hidden>
+        <div class="sec-head"><div><span class="eyebrow" id="items-eyebrow"></span><h2 class="h2" id="items-h"></h2><p class="lead" id="items-lead"></p></div></div>
+        <div class="cards" id="items-cards"></div>
+      </section>
+    </div>
+
+    <!-- ORDER -->
+    <div class="page" data-page="order" hidden>
+      <section class="sec page-head">
+        <nav class="crumbs" aria-label="breadcrumb"><a href="#/" data-i18n="home"></a><span aria-hidden="true">/</span><span data-i18n="navOrder"></span></nav>
+        <h1 class="h1" data-i18n="orderTitle"></h1>
+        <p class="lead" data-i18n="orderLead"></p>
+        <ol class="steps-bar" data-steps></ol>
+      </section>
+      <section class="sec sec--flush order-grid" id="order-main">
+        <div class="order-build">
+          <h2 class="h3"><span class="step-dot num" data-i18n="n1"></span><span data-i18n="step1"></span></h2>
+          <div class="builder-ui builder-ui--wide" data-builder="order"></div>
+        </div>
+        <div class="order-side">
+          <div class="panel" aria-labelledby="cart-h2">
+            <h2 class="h3" id="cart-h2"><span class="step-dot num" data-i18n="n2"></span><span data-i18n="step2"></span></h2>
+            <div data-cart-list></div>
+          </div>
+          <form class="panel form" id="checkout" novalidate aria-labelledby="co-h">
+            <h2 class="h3" id="co-h"><span class="step-dot num" data-i18n="n3"></span><span data-i18n="step3"></span></h2>
+            <div class="field"><label for="co-name" data-i18n="fName"></label><input id="co-name" name="name" autocomplete="name" required maxlength="60"><p class="err" data-err="name"></p></div>
+            <div class="field"><label for="co-phone" data-i18n="fPhone"></label><input id="co-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required maxlength="20" dir="ltr" placeholder="0912 345 6789"><p class="err" data-err="phone"></p></div>
+            <fieldset class="field">
+              <legend data-i18n="fMethod"></legend>
+              <div class="seg">
+                <label><input type="radio" name="method" value="delivery" checked><span data-i18n="mDelivery"></span></label>
+                <label><input type="radio" name="method" value="pickup"><span data-i18n="mPickup"></span></label>
+              </div>
+            </fieldset>
+            <div class="field" id="addr-field"><label for="co-addr" data-i18n="fAddress"></label><textarea id="co-addr" name="address" rows="2" autocomplete="street-address" maxlength="300"></textarea><p class="err" data-err="address"></p></div>
+            <div class="field"><label for="co-time" data-i18n="fTime"></label><select id="co-time" name="time" data-options="times"></select></div>
+            <div class="field"><label for="co-note" data-i18n="fNote"></label><textarea id="co-note" name="note" rows="2" maxlength="400"></textarea></div>
+            <div class="totals" data-totals></div>
+            <p class="err err--form" data-err="cart" role="alert"></p>
+            <button class="btn btn--navy btn--block" type="submit"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg><span data-i18n="sendWa"></span></button>
+            <p class="hint" data-i18n="sendHint"></p>
+          </form>
+        </div>
+        <div class="quick-add">
+          <h3 class="h4" data-i18n="quickAdd"></h3>
+          <div class="quick-list" id="quick-list"></div>
+        </div>
+      </section>
+      <section class="sec sec--flush" id="order-done" hidden>
+        <div class="done panel" tabindex="-1">
+          <span class="ring ring--ok"><svg aria-hidden="true"><use href="#i-check"/></svg></span>
+          <h2 class="h2" data-i18n="doneTitle"></h2>
+          <p class="lead"><span data-i18n="doneLead"></span> <b class="num ltr" id="done-id"></b></p>
+          <pre class="receipt" id="done-text"></pre>
+          <div class="ctas">
+            <a class="btn btn--navy" id="done-wa" href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg><span data-i18n="openWa"></span></a>
+            <button class="btn btn--ghost" type="button" id="done-copy" data-i18n="copyText"></button>
+            <button class="btn btn--ghost" type="button" id="done-new" data-i18n="newOrder"></button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- WHOLESALE -->
+    <div class="page" data-page="wholesale" hidden>
+      <section class="sec page-head page-head--split">
+        <div>
+          <nav class="crumbs" aria-label="breadcrumb"><a href="#/" data-i18n="home"></a><span aria-hidden="true">/</span><span data-i18n="navWholesale"></span></nav>
+          <h1 class="h1" data-i18n="wsTitle"></h1>
+          <p class="lead" data-i18n="wsLead"></p>
+          <div class="ctas"><a class="btn btn--navy" href="#ws-form" data-scroll="ws-form"><span data-i18n="wsCta"></span><svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+        </div>
+        <div class="ws-art"><img src="{{IMG:beans-r100}}" alt="" width="640" height="569"><div class="bubble"><small data-i18n="wsBubble"></small><b data-i18n="wsBubbleB"></b></div></div>
+      </section>
+      <section class="sec sec--flush" aria-labelledby="tiers-h">
+        <div class="sec-head"><div><span class="eyebrow" data-i18n="wsTiersEy"></span><h2 class="h2" id="tiers-h" data-i18n="wsTiersH"></h2></div></div>
+        <div class="tiers" data-tiers></div>
+        <p class="hint" data-i18n="sample"></p>
+      </section>
+      <section class="sec" aria-labelledby="for-h">
+        <div class="sec-head"><div><span class="eyebrow" data-i18n="wsForEy"></span><h2 class="h2" id="for-h" data-i18n="wsForH"></h2></div></div>
+        <ul class="why" data-ws-for></ul>
+        <ol class="process" data-ws-steps></ol>
+      </section>
+      <section class="sec sec--flush" id="ws-form" aria-labelledby="wsf-h">
+        <form class="panel form form--wide" id="wsform" novalidate aria-labelledby="wsf-h">
+          <h2 class="h2" id="wsf-h" data-i18n="wsFormH"></h2>
+          <p class="lead" data-i18n="wsFormLead"></p>
+          <div class="form-grid">
+            <div class="field"><label for="ws-biz" data-i18n="fBiz"></label><input id="ws-biz" name="biz" required maxlength="80" autocomplete="organization"><p class="err" data-err="biz"></p></div>
+            <div class="field"><label for="ws-type" data-i18n="fBizType"></label><select id="ws-type" name="type" data-options="bizTypes"></select></div>
+            <div class="field"><label for="ws-name" data-i18n="fName"></label><input id="ws-name" name="name" required maxlength="60" autocomplete="name"><p class="err" data-err="name"></p></div>
+            <div class="field"><label for="ws-phone" data-i18n="fPhone"></label><input id="ws-phone" name="phone" type="tel" inputmode="tel" required maxlength="20" dir="ltr" autocomplete="tel" placeholder="0912 345 6789"><p class="err" data-err="phone"></p></div>
+            <div class="field"><label for="ws-city" data-i18n="fCity"></label><input id="ws-city" name="city" maxlength="40" autocomplete="address-level2"></div>
+            <div class="field"><label for="ws-kg" data-i18n="fKg"></label><input id="ws-kg" name="kg" type="number" inputmode="numeric" min="5" max="5000" step="1" required dir="ltr" value="10"><p class="err" data-err="kg"></p><p class="hint" id="ws-tier-hint" aria-live="polite"></p></div>
+          </div>
+          <fieldset class="field"><legend data-i18n="fBlends"></legend><div class="checks" data-ws-blends></div><p class="err" data-err="blends"></p></fieldset>
+          <div class="form-grid">
+            <div class="field"><label for="ws-grind" data-i18n="fGrind"></label><select id="ws-grind" name="grind" data-options="grindOpts"></select></div>
+            <div class="field"><label for="ws-freq" data-i18n="fFreq"></label><select id="ws-freq" name="freq" data-options="freqs"></select></div>
+          </div>
+          <div class="field"><label for="ws-note" data-i18n="fNote"></label><textarea id="ws-note" name="note" rows="3" maxlength="500"></textarea></div>
+          <button class="btn btn--navy" type="submit"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg><span data-i18n="wsSend"></span></button>
+          <p class="ok-msg" id="ws-ok" role="status" hidden></p>
+        </form>
+      </section>
+    </div>
+
+    <!-- BLOG -->
+    <div class="page" data-page="blog" hidden>
+      <section class="sec page-head">
+        <nav class="crumbs" aria-label="breadcrumb"><a href="#/" data-i18n="home"></a><span aria-hidden="true">/</span><span data-i18n="navBlog"></span></nav>
+        <h1 class="h1" data-i18n="blogPageTitle"></h1>
+        <p class="lead" data-i18n="blogPageLead"></p>
+        <p class="lang-note" data-i18n="faOnly"></p>
+        <div class="tabs" role="group" id="blog-chips"></div>
+      </section>
+      <section class="sec sec--flush"><div id="blog-featured"></div><div class="posts posts--grid" id="blog-grid"></div></section>
+    </div>
+
+    <!-- ARTICLE -->
+    <div class="page" data-page="article" hidden>
+      <article class="sec article" id="article"></article>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="page" data-page="about" hidden>
+      <section class="sec story story--about" aria-labelledby="ab-title">
+        <div>
+          <nav class="crumbs" aria-label="breadcrumb"><a href="#/" data-i18n="home"></a><span aria-hidden="true">/</span><span data-i18n="navAbout"></span></nav>
+          <h1 class="h1" id="ab-title" data-i18n="abTitle"></h1>
+          <p class="lead" data-i18n="abLead"></p>
+          <p class="lead" data-i18n="abLead2"></p>
+          <div class="facts" data-facts></div>
+        </div>
+        <div class="latte" data-latte>
+          <img class="cup" src="{{IMG:cup-big}}" alt="" width="900" height="900">
+          <div class="bubble"><small data-i18n="sBubble"></small><b data-i18n="sBubbleB"></b></div>
+        </div>
+      </section>
+      <section class="sec sec--flush" aria-labelledby="proc-h">
+        <div class="sec-head"><div><span class="eyebrow" data-i18n="abProcEy"></span><h2 class="h2" id="proc-h" data-i18n="abProcH"></h2></div></div>
+        <ol class="process" data-ab-steps></ol>
+      </section>
+      <section class="sec" aria-labelledby="val-h">
+        <div class="sec-head"><div><span class="eyebrow" data-i18n="abValEy"></span><h2 class="h2" id="val-h" data-i18n="abValH"></h2></div></div>
+        <ul class="why" data-perks></ul>
+        <div class="gallery">
+          <img src="{{IMG:pouch}}" alt="" width="640" height="640" loading="lazy">
+          <img src="{{IMG:giftbox-photo}}" alt="" width="640" height="640" loading="lazy">
+          <img src="{{IMG:housebox}}" alt="" width="640" height="640" loading="lazy">
+          <img src="{{IMG:beans-love}}" alt="" width="640" height="640" loading="lazy">
+        </div>
+      </section>
+      <section class="sec sec--flush"><div data-visit></div></section>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="page" data-page="contact" hidden>
+      <section class="sec page-head">
+        <nav class="crumbs" aria-label="breadcrumb"><a href="#/" data-i18n="home"></a><span aria-hidden="true">/</span><span data-i18n="navContact"></span></nav>
+        <h1 class="h1" data-i18n="ctTitle"></h1>
+        <p class="lead" data-i18n="ctLead"></p>
+      </section>
+      <section class="sec sec--flush"><div data-visit></div></section>
+      <section class="sec contact-grid">
+        <div class="contact-cards" data-contact-cards></div>
+        <form class="panel form" id="ctform" novalidate aria-labelledby="ctf-h">
+          <h2 class="h3" id="ctf-h" data-i18n="ctFormH"></h2>
+          <div class="field"><label for="ct-name" data-i18n="fName"></label><input id="ct-name" name="name" required maxlength="60" autocomplete="name"><p class="err" data-err="name"></p></div>
+          <div class="field"><label for="ct-phone" data-i18n="fPhone"></label><input id="ct-phone" name="phone" type="tel" inputmode="tel" required maxlength="20" dir="ltr" autocomplete="tel" placeholder="0912 345 6789"><p class="err" data-err="phone"></p></div>
+          <div class="field"><label for="ct-subj" data-i18n="fSubject"></label><select id="ct-subj" name="subject" data-options="subjects"></select></div>
+          <div class="field"><label for="ct-msg" data-i18n="fMessage"></label><textarea id="ct-msg" name="message" rows="4" required maxlength="800"></textarea><p class="err" data-err="message"></p></div>
+          <button class="btn btn--navy" type="submit"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg><span data-i18n="ctSend"></span></button>
+          <p class="ok-msg" id="ct-ok" role="status" hidden></p>
+        </form>
+      </section>
+      <section class="sec sec--flush" aria-labelledby="faq-h">
+        <div class="sec-head"><div><span class="eyebrow" data-i18n="faqEy"></span><h2 class="h2" id="faq-h" data-i18n="faqH"></h2></div></div>
+        <div class="faq" data-faq></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="sec site-foot">
+    <div class="talk">
+      <div><span class="eyebrow" data-i18n="wEyebrow"></span><h2 data-i18n="wTitle"></h2><p data-i18n="wLead"></p></div>
+      <a class="btn btn--navy" href="#/wholesale"><span data-i18n="wCta"></span><svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="foot">
+      <div><a class="logo" href="#/"><svg aria-hidden="true"><use href="#logo"/></svg><span><b data-i18n="brand"></b><small>CAFE · MAAD</small></span></a><p class="about" data-i18n="about"></p></div>
+      <div><h3 class="foot-h" data-i18n="fPages"></h3><ul id="foot-pages"></ul></div>
+      <div><h3 class="foot-h" data-i18n="fShop"></h3><ul id="foot-shop"></ul></div>
+      <div><h3 class="foot-h" data-i18n="fContact"></h3><ul><li data-i18n="addr"></li><li data-i18n="hours"></li><li><a class="ltr num" href="tel:+989336058471" data-i18n="phone"></a></li><li class="foot-soc"><a href="https://instagram.com/ghahvemaad_satarkhan" target="_blank" rel="noopener">Instagram</a><a href="https://t.me/+989336058471" target="_blank" rel="noopener" data-i18n="tg"></a><a href="https://wa.me/989336058471" target="_blank" rel="noopener" data-i18n="wa"></a></li></ul></div>
+    </div>
+    <div class="copy"><span data-i18n="copy"></span><span data-i18n="sample"></span></div>
+  </footer>
+</div>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-h" hidden>
+  <div class="drawer-top"><h2 class="h3" id="drawer-h" data-i18n="cart"></h2><button class="icon-btn" type="button" id="drawer-close" data-i18n-aria="close"><svg aria-hidden="true"><use href="#i-x"/></svg></button></div>
+  <div class="drawer-body" data-cart-list></div>
+  <div class="drawer-foot"><div class="totals" data-totals></div><a class="btn btn--navy btn--block" href="#/order" id="drawer-checkout" data-i18n="checkout"></a></div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>

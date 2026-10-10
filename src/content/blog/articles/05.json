@@ -1,0 +1,77 @@
+{
+  "id": "05",
+  "title": "از گیلاس تا فنجان: فرآوری شسته، طبیعی، هانی و انقلاب تخمیر بی‌هوازی",
+  "dek": "چند روز یا چند هفته میان چیدن گیلاس و رسیدن دانه به برشته‌کار، می‌تواند طعم فنجان شما را از ریشه عوض کند. از مخزن‌های تخمیر کلمبیا تا ماسراسیون کربنیکی که یک قهرمان جهان را ساخت و جدال داغ قهوه‌های «اینفیوز».",
+  "kicker": "خاستگاه و فرآوری",
+  "readMinutes": 20,
+  "words": 4109,
+  "keyTakeaways": [
+    "فرآوری شسته دانه را زود از میوه جدا می‌کند (تخمیر ۱۲ تا ۷۲ ساعت) و فنجانی شفاف با صدای واضح‌تر خاک و واریته می‌دهد.",
+    "در فرآوری طبیعی گیلاس کامل ۳ تا ۶ هفته خشک می‌شود و میوه شخصیت میوه‌محور و بدنه‌ی پررنگ‌تری به دانه می‌دهد.",
+    "رنگ هانی به مقدار موسیلاژ باقی‌مانده بستگی دارد: هرچه بیشتر، شیرینی و بدنه بیشتر؛ اما تعریف‌ها در هر فرآوری‌خانه فرق می‌کند.",
+    "بی‌هوازی و ماسراسیون کربنیک فقط شرایط تخمیر را تغییر می‌دهند؛ تلقیح مخمر و ماستو افزودنی میکروبی‌اند و هم‌تخمیری مواد غیرقهوه‌ای به مخزن می‌افزاید.",
+    "هنوز تعریف و الزام برچسب‌گذاری مشخصی برای قهوه‌های هم‌تخمیر وجود ندارد؛ برچسب را بخوانید و از فروشنده درباره‌ی فرآوری بپرسید."
+  ],
+  "sources": [
+    {
+      "title": "Washed Process (aka Wet Process)",
+      "publisher": "Cafe Imports",
+      "url": "https://www.cafeimports.com/north-america/blog/?p=37561",
+      "year": null
+    },
+    {
+      "title": "How to Improve Quality When Processing Washed Coffees",
+      "publisher": "Perfect Daily Grind",
+      "url": "https://perfectdailygrind.com/?p=67721",
+      "year": 2019
+    },
+    {
+      "title": "Coffee Processing: Natural",
+      "publisher": "Royal Coffee New York",
+      "url": "https://www.royalny.com/?p=41683",
+      "year": null
+    },
+    {
+      "title": "Black, Red, White: A Guide to Costa Rica's Honey Process",
+      "publisher": "Origin Coffee Roasters",
+      "url": "https://www.origincoffee.co.uk/blogs/journal/black-red-white-a-guide-to-costa-ricas-honey-process",
+      "year": 2016
+    },
+    {
+      "title": "Video: What Is Honey Processed Coffee & How Is It Produced?",
+      "publisher": "Perfect Daily Grind",
+      "url": "https://perfectdailygrind.com/2017/05/video-what-is-honey-processed-coffee-how-is-it-produced/",
+      "year": 2017
+    },
+    {
+      "title": "Fun With Ferment: Anaerobically Processed Coffees",
+      "publisher": "Coffee Review",
+      "url": "https://www.coffeereview.com/anaerobically-processed-coffees/",
+      "year": 2021
+    },
+    {
+      "title": "Understanding the Process: Anaerobic Processing",
+      "publisher": "Barista Magazine",
+      "url": "https://baristamagazine.com/understanding-the-process-anaerobic-processing",
+      "year": 2023
+    },
+    {
+      "title": "What Is Carbonic Maceration Coffee?",
+      "publisher": "Ozone Coffee",
+      "url": "https://ozonecoffee.co.uk/blogs/coffee-processing-explained/what-is-carbonic-maceration",
+      "year": null
+    },
+    {
+      "title": "Additive Fermentation: 'Infused' Coffee is Gaining Popularity—and Sparking Industry Debate",
+      "publisher": "Roast Magazine (Chris Kornman; republished by Royal Coffee)",
+      "url": "https://www.roastmagazine.com/stories/additive-fermentation-infused-coffee",
+      "year": 2025
+    },
+    {
+      "title": "Best of Panama Organizers Take Hard Stance Against Infused Coffees",
+      "publisher": "Daily Coffee News",
+      "url": "https://dailycoffeenews.com/2024/06/28/best-of-panama-organizers-take-hard-stance-against-infused-coffees",
+      "year": 2024
+    }
+  ]
+}

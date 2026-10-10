@@ -1,0 +1,86 @@
+{
+  "id": "12",
+  "title": "قهوه و سلامت: آنچه پژوهش‌های تازه درباره عمر طولانی، خواب و قلب می‌گویند",
+  "dek": "مطالعه‌های بزرگ می‌گویند قهوه‌نوش‌های معتدل عمر کوتاه‌تری ندارند، اما همبستگی هنوز علیت نیست. از نیمه‌عمر کافئین و خواب شب تا فیلتر کاغذی و بارداری، آنچه شواهد واقعاً می‌گوید.",
+  "kicker": "قهوه و سلامت",
+  "readMinutes": 16,
+  "words": 3744,
+  "keyTakeaways": [
+    "در مطالعه‌های مشاهده‌ای، ۳ تا ۴ فنجان در روز با حدود ۱۷ درصد خطر کمتر مرگ همراه بوده؛ این همبستگی است، نه اثبات علت.",
+    "سقف ایمن EFSA و FDA برای بزرگسالان سالم ۴۰۰ میلی‌گرم کافئین در روز است و در بارداری ۲۰۰ میلی‌گرم.",
+    "نیمه‌عمر کافئین به طور میانگین ۴ تا ۵ ساعت است و در اواخر بارداری تا حدود ۱۵ ساعت می‌رسد؛ قهوه‌ی عصر می‌تواند خواب را کوتاه کند.",
+    "قهوه‌ی بدون فیلتر (جوشانده، ترک، فرنچ‌پرس) کافستول دارد که LDL را بالا می‌برد؛ فیلتر کاغذی تقریباً همه‌ی آن را می‌گیرد.",
+    "بی‌کافئین در مطالعه‌ها ارتباط‌های مشابهی نشان داده و دوزهای ۴۰۰ میلی‌گرم به بالا با اضطراب بیشتر همراه است."
+  ],
+  "sources": [
+    {
+      "title": "Coffee consumption and health: umbrella review of meta-analyses of multiple health outcomes",
+      "publisher": "BMJ (Poole et al.)",
+      "url": "https://www.bmj.com/content/359/bmj.j5024",
+      "year": 2017
+    },
+    {
+      "title": "Can Coffee Help You Live Longer? We Really Want To Know (on Freedman et al., NEJM 2012)",
+      "publisher": "NPR",
+      "url": "https://www.npr.org/sections/thesalt/2012/05/16/152835058/can-coffee-help-you-live-longer-we-really-want-to-know",
+      "year": 2012
+    },
+    {
+      "title": "Coffee consumption and mortality from cardiovascular diseases and total mortality: Does the brewing method matter?",
+      "publisher": "European Journal of Preventive Cardiology (Tverdal et al.)",
+      "url": "https://academic.oup.com/eurjpc/article/27/18/1986/5826719",
+      "year": 2020
+    },
+    {
+      "title": "Coffee associated with lower mortality risk (on Annals of Internal Medicine 2022 study)",
+      "publisher": "Axios",
+      "url": "https://www.axios.com/2022/05/31/coffee-associated-with-lower-mortality-risk",
+      "year": 2022
+    },
+    {
+      "title": "Caffeine (Scientific Opinion on the safety of caffeine)",
+      "publisher": "EFSA",
+      "url": "https://www.efsa.europa.eu/en/topics/topic/caffeine",
+      "year": 2015
+    },
+    {
+      "title": "Spilling the Beans: How Much Caffeine is Too Much?",
+      "publisher": "U.S. FDA",
+      "url": "https://www.fda.gov/consumers/consumer-updates/spilling-beans-how-much-caffeine-too-much"
+    },
+    {
+      "title": "Foods to avoid in pregnancy",
+      "publisher": "NHS",
+      "url": "https://www.nhs.uk/pregnancy/keeping-well/foods-to-avoid/"
+    },
+    {
+      "title": "Does coffee help or harm your heart? (on the CRAVE trial, NEJM 2023)",
+      "publisher": "Harvard Health Publishing",
+      "url": "https://www.health.harvard.edu/heart-health/does-coffee-help-or-harm-your-heart",
+      "year": 2023
+    },
+    {
+      "title": "Caffeine intake and anxiety: a meta-analysis",
+      "publisher": "Frontiers in Psychology (Liu et al.)",
+      "url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1270246/full",
+      "year": 2024
+    },
+    {
+      "title": "Pregnancy and Caffeine Metabolism: Updated Insights and Implications for Maternal–Fetal Health",
+      "publisher": "Nutrients (Struniewicz et al.)",
+      "url": "https://www.mdpi.com/2072-6643/17/19/3173",
+      "year": 2025
+    },
+    {
+      "title": "The way you brew your coffee can affect your heart health (on Iggman et al., Uppsala University)",
+      "publisher": "Fortune",
+      "url": "https://www.fortune.com/well/2025/03/31/coffee-brew-cholesterol-heart-health",
+      "year": 2025
+    },
+    {
+      "title": "Coffee",
+      "publisher": "Harvard T.H. Chan School of Public Health, The Nutrition Source",
+      "url": "https://nutritionsource.hsph.harvard.edu/food-features/coffee/"
+    }
+  ]
+}

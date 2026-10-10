@@ -1,0 +1,95 @@
+{
+  "id": "03",
+  "title": "علم پشت یک شات بی‌نقص: نسبت، زمان، دما و راز استخراج اسپرسو",
+  "dek": "هجده گرم پودر، بیست‌وچند ثانیه و چند عدد پنهان. از نمودار ۱۹۵۷ لاکهارت تا پژوهش‌هایی که نشان دادند گاهی قهوه‌ی کمتر و آسیاب درشت‌تر، اسپرسوی بهتری می‌سازد.",
+  "kicker": "علم اسپرسو",
+  "readMinutes": 17,
+  "words": 4179,
+  "keyTakeaways": [
+    "درصد استخراج = غلظت × وزن نوشیدنی ÷ دوز؛ ۱۸ گرم پودر و ۳۶ گرم نوشیدنی با غلظت ۱۰٪ یعنی ۲۰٪ استخراج.",
+    "نمودار تازه‌ی یوسی دیویس نشان داد «قهوه‌ی خوب» یک نقطه‌ی واحد نیست؛ ترشی، تلخی و شیرینی هر کدام در گوشه‌ای از نمودار اوج می‌گیرند.",
+    "آسیاب ریزتر همیشه استخراج بیشتر نمی‌دهد؛ در آسیاب خیلی ریز، جریان ناهمگن و کانالیزه می‌شود.",
+    "شات هم‌زمان ترش و تلخ، امضای استخراج ناهمگن است؛ پیش از تغییر آسیاب، آماده‌سازی کیک را درست کنید.",
+    "در تنظیم شات هر بار فقط یک متغیر را تغییر دهید و همه چیز را با ترازو بسنجید."
+  ],
+  "sources": [
+    {
+      "title": "Systematically Improving Espresso: Insights from Mathematical Modeling and Experiment (Cameron et al., Matter 2(3):631–648)",
+      "publisher": "Pacific Northwest National Laboratory (abstract)",
+      "url": "https://www.pnnl.gov/publications/systematically-improving-espresso-insights-mathematical-modeling-and-experiment",
+      "year": 2020
+    },
+    {
+      "title": "Espresso reproducibility",
+      "publisher": "BeanScene Magazine",
+      "url": "https://beanscenemag.com.au/espresso-reproducibility/",
+      "year": 2020
+    },
+    {
+      "title": "UO chemist helps find path to consistently good espresso",
+      "publisher": "University of Oregon",
+      "url": "https://news.uoregon.edu/content/uo-chemist-helps-find-path-consistently-good-espresso",
+      "year": 2020
+    },
+    {
+      "title": "Extracting the Best Flavor from Coffee (Lee, Smith & Arshad, Physics of Fluids)",
+      "publisher": "AIP Publishing",
+      "url": "https://publishing.aip.org/publications/latest-content/extracting-the-best-flavor-from-coffee/",
+      "year": 2023
+    },
+    {
+      "title": "How to grind a perfect espresso",
+      "publisher": "University of Huddersfield",
+      "url": "https://hud.ac.uk/news/2023/may/how-to-grind-a-perfect-espresso",
+      "year": 2023
+    },
+    {
+      "title": "Under pressure: poroelastic regulation of flow in espresso brewing",
+      "publisher": "arXiv (Waszkiewicz et al.)",
+      "url": "https://arxiv.org/pdf/2512.21528",
+      "year": 2026
+    },
+    {
+      "title": "Towards a New Brewing Chart",
+      "publisher": "Specialty Coffee Association",
+      "url": "https://sca.coffee/sca-news/25/issue-13/towards-a-new-brewing-chart"
+    },
+    {
+      "title": "Why the New Coffee Brewing Control Chart is a Big Deal",
+      "publisher": "Fresh Cup Magazine",
+      "url": "https://freshcup.com/why-the-new-coffee-brewing-control-chart-is-a-big-deal/"
+    },
+    {
+      "title": "Advanced Coffee Making",
+      "publisher": "Barista Hustle",
+      "url": "https://www.baristahustle.com/?p=888"
+    },
+    {
+      "title": "Brew Ratios Around the World",
+      "publisher": "La Marzocco Home",
+      "url": "https://home.lamarzoccousa.com/brew-ratios-around-world/",
+      "year": 2014
+    },
+    {
+      "title": "Which puck preparation technique is best?",
+      "publisher": "Decent Espresso",
+      "url": "https://decentespresso.com/docs/which_puck_preparation_technique_is_best",
+      "year": 2020
+    },
+    {
+      "title": "Channeling",
+      "publisher": "Kaffeemacher",
+      "url": "https://kaffeemacher.ch/en/blog/channeling"
+    },
+    {
+      "title": "Espresso temperature",
+      "publisher": "Kaffeemacher",
+      "url": "https://kaffeemacher.de/en/blogs/kaffeewissen/espresso-temperature"
+    },
+    {
+      "title": "Coffee extraction",
+      "publisher": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Coffee_extraction"
+    }
+  ]
+}
