@@ -10,6 +10,8 @@ Open `index.html` in any browser. It is one self-contained file (fonts and image
 
 To publish it with GitHub Pages, go to **Settings → Pages**, choose **Deploy from a branch**, then pick `main` and `/ (root)`.
 
+The live site at <https://cafemaad.ir> runs on nginx behind ArvanCloud; see [deploy/README.md](deploy/README.md).
+
 ## Pages
 
 | Route | Page |
