@@ -130,7 +130,10 @@ def build() -> None:
     t_end = page.index("</style>") + len("</style>")
     head = ('<!doctype html>\n<html lang="fa" dir="rtl">\n<head>\n<meta charset="utf-8">\n'
             '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
-            '<meta name="description" content="Cafe Maad: fresh roasted coffee on Sattarkhan, Tehran.">\n<meta name="theme-color" content="#172b5e">\n')
+            '<meta name="description" content="Cafe Maad: fresh roasted coffee on Sattarkhan, Tehran.">\n<meta name="theme-color" content="#172b5e">\n'
+            '<link rel="icon" href="icons/favicon.svg" type="image/svg+xml">\n<link rel="icon" href="icons/favicon-32.png" sizes="32x32">\n'
+            '<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">\n<link rel="manifest" href="manifest.webmanifest">\n'
+            '<meta name="apple-mobile-web-app-title" content="کافه ماد">\n')
     OUT.write_text(head + page[:t_end] + "\n</head>\n<body>\n" + page[t_end:] + "</body>\n</html>\n", encoding="utf-8")
     print(f"site.html {len(page) / 1e6:.2f} MB, {len(arts)} articles, {len(used)} images")
 

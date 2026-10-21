@@ -26,6 +26,9 @@ fetch_source() {
 
 publish_page() {
     install -d -m 755 "$WEB_DIR"
+    install -d -m 755 "$WEB_DIR/icons"
+    install -m 644 "$SRC_DIR"/icons/* "$WEB_DIR/icons/"
+    install -m 644 "$SRC_DIR/manifest.webmanifest" "$WEB_DIR/manifest.webmanifest"
     # Copy to a temp name first so visitors never get a half-written page.
     install -m 644 "$SRC_DIR/index.html" "$WEB_DIR/index.html.new"
     mv -f "$WEB_DIR/index.html.new" "$WEB_DIR/index.html"

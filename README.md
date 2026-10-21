@@ -35,6 +35,7 @@ Sources live in `src/`:
 - `app.js`: catalogue, prices, cart, builder, forms and router.
 - `content/blog/`: articles and their cover art.
 - `assets/`: images and fonts.
+- `tools/icons.py`: the logo (header symbol in `icons.svg`), favicon, home-screen icons in `/icons` and `/manifest.webmanifest`. Run it after changing the logo (needs Playwright).
 
 Rebuild `index.html` after any change:
 
