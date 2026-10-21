@@ -9,7 +9,7 @@ Visitor ─► ArvanCloud CDN (HTTPS) ─► server nginx :80 ─┬─ Host: ca
 
 | File | Purpose |
 |---|---|
-| `nginx-cafemaad.conf` | nginx `server` block for cafemaad.ir and www.cafemaad.ir; serves only `index.html` |
+| `nginx-cafemaad.conf` | nginx `server` block for cafemaad.ir and www.cafemaad.ir; serves only `index.html`, `icons/` and `manifest.webmanifest` |
 | `install.sh` | Clones or updates the repository in `/opt/cafemaad`, publishes the page, installs the nginx site and reloads nginx |
 
 ## 1. ArvanCloud

@@ -77,7 +77,7 @@ p { margin: 0; }
 /* nav */
 .nav { display: flex; align-items: center; gap: 18px; padding: 22px var(--pad); }
 .logo { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); }
-.logo svg { width: 42px; height: 42px; }
+.logo svg { width: 48px; height: 48px; }
 .logo b { display: block; font-family: var(--f-display); font-weight: var(--display-weight); font-size: 1.2rem; line-height: 1.1; }
 .logo small { display: block; font-family: "Tektur", sans-serif; font-size: 0.6rem; letter-spacing: 0.3em; color: var(--olive); font-weight: 700; }
 .nav-links { display: flex; gap: 4px; margin: 0 auto; padding: 0; list-style: none; }
