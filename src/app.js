@@ -4,37 +4,40 @@
   const ARTICLES = /*ARTICLES*/[];
 /*I18N*/
 
-  /* ---------- catalogue (prices are samples; beans priced per 250 g) ---------- */
+  /* ---------- catalogue (src/catalog.json: kg = price of 1 kg in thousand toman) ---------- */
+  const CATALOG = /*CATALOG*/[];
   const PHONE_INTL = "989336058471";
-  const BLENDS = [
-    { id: "a70", img: "beans-a70", price: 420000 },
-    { id: "r70", img: "beans-r70", price: 360000 },
-    { id: "a100", img: "beans-a100", price: 520000 },
-    { id: "r100", img: "beans-r100", price: 300000 }
+  const CATS = [
+    { id: "robusta", icon: "#i-bean" }, { id: "arabica", icon: "#i-bean" }, { id: "mix", icon: "#i-grind" },
+    { id: "crema", icon: "#i-flame" }, { id: "powder", icon: "#i-mug" }
   ];
-  const SIZES = [{ id: "250", factor: 1 }, { id: "500", factor: 1.9 }, { id: "1000", factor: 3.6 }];
+  const PAGE_CATS = [...CATS, { id: "custom", icon: "#i-plus" }];
+  const COFFEE_CATS = ["robusta", "arabica", "mix", "crema"];
+  const BY_ID = Object.fromEntries(CATALOG.map((p) => [p.id, p]));
+  const inCat = (cat) => CATALOG.filter((p) => p.cat === cat);
+  const COFFEES = CATALOG.filter((p) => COFFEE_CATS.includes(p.cat));
+  const isCoffee = (p) => COFFEE_CATS.includes(p.cat);
+  const SIZES = [{ id: "250", g: 250 }, { id: "500", g: 500 }, { id: "1000", g: 1000 }, { id: "ws", g: 1000 }];
+  const WS = { min: 5, max: 1000 };
   const GRINDS = [
     { id: "turkish", level: 1 }, { id: "espHome", level: 2 }, { id: "espPro", level: 2 }, { id: "moka", level: 3 }, { id: "aero", level: 3 },
     { id: "v60", level: 4 }, { id: "drip", level: 4 }, { id: "chemex", level: 5 }, { id: "french", level: 6 }, { id: "cold", level: 7 }
   ];
-  const CATALOG = {
-    gear: [{ id: "v60", img: "v60", price: 690000, r: true }, { id: "moka", img: "moka", price: 1450000, r: true }, { id: "press", img: "press", price: 980000, r: true }, { id: "grinder", img: "grinder", price: 1850000, r: true }, { id: "filters", img: "filters", price: 120000, r: true }],
-    mugs: [{ id: "mugCoral", img: "mug-coral", price: 380000, r: true }, { id: "mugNavy", img: "mug-navy", price: 380000, r: true }, { id: "flask", img: "flask", price: 890000, r: true }, { id: "tumbler", img: "tumbler", price: 640000, r: true }],
-    more: [{ id: "giftbox", img: "giftbox-photo", price: 2400000 }, { id: "housebox", img: "housebox", price: 950000 }, { id: "pouch", img: "pouch", price: 460000 }, { id: "ground", img: "beans-ground", price: 420000 }, { id: "jar", img: "jar", price: 540000 }, { id: "syrup", img: "syrup", price: 310000, r: true }, { id: "choco", img: "choco", price: 180000, r: true }]
-  };
-  const PRODUCTS = Object.fromEntries(Object.values(CATALOG).flat().map((p) => [p.id, p]));
-  const CATS = [{ id: "beans", icon: "#i-bean", key: "c1" }, { id: "gear", icon: "#i-dripper", key: "c2" }, { id: "mugs", icon: "#i-mug", key: "c3" }, { id: "more", icon: "#i-gift", key: "c4" }];
+  const BLEND = { min: 2, max: 5 };
+  const BLEND_COLORS = ["#172B5E", "#CE685F", "#908364", "#E8D4A1", "#7d9a6a"];
+  const HOME_PICKS = { robusta: ["vietnam", "uganda", "indonesia", "vietnamDark"], arabica: ["brazilSantos", "colombia", "ethSidamo", "peru"], mix: ["mixA70", "mixA100", "mixR70", "mixR50"], crema: ["crema100", "crema80", "crema70"], powder: ["masala", "hotChoc", "goldBrazil", "karakSaffron"] };
   const NAV = [["navProducts", "#/products", "products"], ["navBlog", "#/blog", "blog"], ["navOrder", "#/order", "order"], ["navWholesale", "#/wholesale", "wholesale"], ["navAbout", "#/about", "about"], ["navContact", "#/contact", "contact"]];
   const PERK_ICONS = ["#i-flame", "#i-grind", "#i-truck", "#i-shield"];
   const TIER_MIN = [5, 20, 50];
   const LANGS = Object.keys(I18N);
   const MAX_QTY = 50;
+  const CART_KEY = "maad-cart-v2";
 
   /* ---------- helpers ---------- */
   const root = document.documentElement;
   const $ = (id) => document.getElementById(id);
   const $$ = (sel, scope = document) => Array.from(scope.querySelectorAll(sel));
-  const state = { lang: "fa", route: { page: "home", arg: "" }, homeTab: "gear", blogCat: "all", cart: [], favs: new Set(), pendingBlend: null };
+  const state = { lang: "fa", route: { page: "home", arg: "" }, homeTab: "mix", blogCat: "all", cart: [], favs: new Set(), pending: null };
   const t = () => I18N[state.lang];
   const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
   const icon = (id) => { const ns = "http://www.w3.org/2000/svg"; const s = document.createElementNS(ns, "svg"); const u = document.createElementNS(ns, "use"); u.setAttribute("href", id); s.setAttribute("aria-hidden", "true"); s.appendChild(u); return s; };
@@ -47,45 +50,73 @@
     set(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); } catch (_) { /* storage unavailable: keep in memory only */ } }
   };
   const safe = (label, fn) => { try { return fn(); } catch (err) { console.error(`[cafe-maad] ${label}`, err); return undefined; } };
+  const pName = (p) => p.name[state.lang] || p.name.fa;
+  const pNote = (p) => p.note[state.lang] || p.note.fa;
+  const pImg = (id) => `p-${id}`;
+  const pctSign = () => (state.lang === "fa" || state.lang === "ar" ? "٪" : "%");
+
+  /* ---------- pricing ---------- */
+  // per-kg price in toman; a custom blend costs the weighted average of its coffees
+  const perKg = (l) => l.type === "blend"
+    ? Math.round(l.parts.reduce((s, x) => s + BY_ID[x.id].kg * x.pct, 0) / 100) * 1000
+    : BY_ID[l.id].kg * 1000;
+  // packs are priced in proportion to 1 kg, rounded up to the next 1,000 toman; wholesale is charged per kg
+  const packPrice = (kgPrice, size) => size === "ws" ? kgPrice : Math.ceil(kgPrice * SIZES.find((s) => s.id === size).g / 1e6) * 1000;
+  const qtyRange = (size) => size === "ws" ? WS : { min: 1, max: MAX_QTY };
+  const clampFor = (size, q) => { const r = qtyRange(size); return Math.min(r.max, Math.max(r.min, Math.round(Number(q) || r.min))); };
 
   /* ---------- cart model ---------- */
-  const beanKey = (c) => `b:${c.blend}:${c.size}:${c.form}:${c.form === "ground" ? c.grind : "-"}`;
-  const validLine = (l) => l && typeof l === "object" && (
-    (l.type === "bean" && BLENDS.some((b) => b.id === l.blend) && SIZES.some((s) => s.id === l.size) && (l.form === "whole" || (l.form === "ground" && GRINDS.some((g) => g.id === l.grind)))) ||
-    (l.type === "item" && Boolean(PRODUCTS[l.id])));
-  const loadCart = () => {
-    const raw = store.get("maad-cart-v1", []);
-    state.cart = Array.isArray(raw) ? raw.filter(validLine).map((l) => ({ ...l, qty: clampQty(l.qty) })) : [];
+  const validGrind = (l, coffee) => coffee
+    ? (l.form === "whole" || (l.form === "ground" && GRINDS.some((g) => g.id === l.grind)))
+    : l.form === "na";
+  const validParts = (parts) => Array.isArray(parts) && parts.length >= BLEND.min && parts.length <= BLEND.max &&
+    new Set(parts.map((x) => x?.id)).size === parts.length &&
+    parts.every((x) => x && BY_ID[x.id] && isCoffee(BY_ID[x.id]) && Number.isInteger(x.pct) && x.pct >= 1 && x.pct <= 100) &&
+    parts.reduce((s, x) => s + x.pct, 0) === 100;
+  const validLine = (l) => l && typeof l === "object" && SIZES.some((s) => s.id === l.size) && (
+    (l.type === "item" && Boolean(BY_ID[l.id]) && validGrind(l, isCoffee(BY_ID[l.id]))) ||
+    (l.type === "blend" && validParts(l.parts) && validGrind(l, true)));
+  const lineKey = (l) => {
+    const how = `${l.size}:${l.form}:${l.form === "ground" ? l.grind : "-"}`;
+    return l.type === "blend" ? `b:${l.parts.map((x) => `${x.id}-${x.pct}`).join("_")}:${how}` : `i:${l.id}:${how}`;
   };
-  const saveCart = () => store.set("maad-cart-v1", state.cart);
-  const unitPrice = (l) => l.type === "bean"
-    ? BLENDS.find((b) => b.id === l.blend).price * SIZES.find((s) => s.id === l.size).factor
-    : PRODUCTS[l.id].price;
-  const lineTotal = (l) => Math.round(unitPrice(l) / 1000) * 1000 * l.qty;
-  const cartCount = () => state.cart.reduce((s, l) => s + l.qty, 0);
+  const loadCart = () => {
+    const raw = store.get(CART_KEY, []);
+    state.cart = Array.isArray(raw) ? raw.filter(validLine).map((l) => ({ ...l, key: lineKey(l), qty: clampFor(l.size, l.qty) })) : [];
+  };
+  const saveCart = () => store.set(CART_KEY, state.cart);
+  const unitPrice = (l) => packPrice(perKg(l), l.size);
+  const lineTotal = (l) => unitPrice(l) * l.qty;
+  const cartCount = () => state.cart.reduce((s, l) => s + (l.size === "ws" ? 1 : l.qty), 0);
   const cartSubtotal = () => state.cart.reduce((s, l) => s + lineTotal(l), 0);
+  const grindText = (l) => {
+    const d = t();
+    if (l.form === "na") return "";
+    if (l.form === "whole") return d.forms.whole;
+    const g = GRINDS.find((x) => x.id === l.grind);
+    return `${d.grinds[l.grind]} (${d.levels[g.level - 1]})`;
+  };
+  const sizeText = (l) => l.size === "ws" ? `${t().sizes.ws} · ${num(l.qty)} ${t().kgUnit}` : t().sizes[l.size];
+  const partsText = (parts) => parts.map((x) => `${num(x.pct)}${pctSign()} ${pName(BY_ID[x.id])}`).join(" + ");
   const describe = (l) => {
     const d = t();
-    if (l.type === "bean") {
-      const grind = GRINDS.find((g) => g.id === l.grind);
-      const how = l.form === "whole" ? d.forms.whole : `${d.grinds[l.grind]} (${d.levels[grind.level - 1]})`;
-      return { name: d.blends[l.blend][0], detail: `${d.sizes[l.size]} · ${how}`, img: BLENDS.find((b) => b.id === l.blend).img, render: false };
-    }
-    const p = PRODUCTS[l.id];
-    return { name: d.items[l.id][0], detail: d.items[l.id][1], img: p.img, render: Boolean(p.r) };
+    const how = [sizeText(l), grindText(l)].filter(Boolean).join(" · ");
+    if (l.type === "blend") return { name: d.customName, detail: `${partsText(l.parts)} · ${how}`, img: pImg(l.parts[0].id), render: false };
+    const p = BY_ID[l.id];
+    return { name: pName(p), detail: how, img: pImg(p.id), render: false };
   };
-  const addLine = (line, qty = 1) => {
-    const key = line.type === "bean" ? beanKey(line) : `i:${line.id}`;
+  const addLine = (line, qty) => {
+    const key = lineKey(line);
     const found = state.cart.find((l) => l.key === key);
-    if (found) found.qty = clampQty(found.qty + qty);
-    else state.cart.push({ ...line, key, qty: clampQty(qty) });
+    if (found) found.qty = clampFor(found.size, found.qty + qty);
+    else state.cart.push({ ...line, key, qty: clampFor(line.size, qty) });
     saveCart(); renderCart(); toast(t().added); bumpBadge();
   };
   const setQty = (key, qty) => {
     const l = state.cart.find((x) => x.key === key);
     if (!l) return;
-    if (qty < 1) state.cart = state.cart.filter((x) => x.key !== key);
-    else l.qty = clampQty(qty);
+    if (qty < qtyRange(l.size).min) state.cart = state.cart.filter((x) => x.key !== key);
+    else l.qty = clampFor(l.size, qty);
     saveCart(); renderCart();
   };
 
@@ -93,24 +124,24 @@
   let toastTimer = 0;
   const toast = (msg) => { const n = $("toast"); n.textContent = msg; n.classList.add("show"); clearTimeout(toastTimer); toastTimer = setTimeout(() => n.classList.remove("show"), 2200); };
   const bumpBadge = () => { const b = $("cart-count"); b.animate?.([{ transform: "scale(1.35)" }, { transform: "scale(1)" }], { duration: 300 }); };
-  const stepper = (value, onChange, label) => {
+  const stepper = (value, onChange, label, range = { min: 1, max: MAX_QTY }, unit = "") => {
     const wrap = el("div", "stepper"); wrap.setAttribute("role", "group"); wrap.setAttribute("aria-label", label);
     const dec = el("button"); dec.type = "button"; dec.setAttribute("aria-label", t().dec); dec.appendChild(icon("#i-minus"));
-    const out = el("output", "num", num(value)); out.setAttribute("aria-live", "polite");
+    const out = el("output", "num", unit ? `${num(value)} ${unit}` : num(value)); out.setAttribute("aria-live", "polite");
     const inc = el("button"); inc.type = "button"; inc.setAttribute("aria-label", t().inc); inc.appendChild(icon("#i-plus"));
     dec.addEventListener("click", () => onChange(value - 1));
     inc.addEventListener("click", () => onChange(value + 1));
-    if (value >= MAX_QTY) inc.disabled = true;
+    if (value >= range.max) inc.disabled = true;
     wrap.append(dec, out, inc);
     return wrap;
   };
   const productImg = (name, render, cls) => { const im = el("img", cls); im.src = IMG[name] || ""; im.alt = ""; im.width = 160; im.height = 160; im.decoding = "async"; if (render) im.classList.add("contain"); return im; };
 
-  const card = ({ name, note, img, price, render, onCart, favKey, onPick, pickLabel, active }) => {
+  const card = ({ name, note, img, price, priceNote, onCart, favKey, onPick, pickLabel, active }) => {
     const d = t();
     const c = el("article", active ? "card is-on" : "card");
-    const ph = el("div", render ? "ph ph--render" : "ph");
-    const im = el("img"); im.src = IMG[img] || ""; im.alt = name; im.width = 480; im.height = 520; im.decoding = "async"; ph.appendChild(im);
+    const ph = el("div", "ph");
+    const im = el("img"); im.src = IMG[img] || ""; im.alt = name; im.width = 480; im.height = 520; im.decoding = "async"; im.loading = "lazy"; ph.appendChild(im);
     if (onPick) { const pick = el("button", "pick"); pick.type = "button"; pick.setAttribute("aria-label", `${pickLabel || d.choose}: ${name}`); pick.addEventListener("click", onPick); c.appendChild(pick); }
     const acts = el("div", "acts");
     const cartBtn = el("button", "mini"); cartBtn.type = "button"; cartBtn.setAttribute("aria-label", `${onCart ? d.add : d.choose}: ${name}`); cartBtn.appendChild(icon("#i-cart"));
@@ -123,12 +154,13 @@
     });
     fav.dataset.fav = favKey;
     acts.append(cartBtn, fav);
-    const pr = el("span", "price num", money(price)); pr.appendChild(el("small", null, d.currency));
+    const pr = el("span", "price num", money(price)); pr.appendChild(el("small", null, priceNote ? `${d.currency} · ${priceNote}` : d.currency));
     c.append(ph, el("h3", null, name), el("p", null, note), acts, pr);
     return c;
   };
-  const blendCard = (b, onPick, active) => { const [name, note] = t().blends[b.id]; return card({ name, note, img: b.img, price: b.price, favKey: `b:${b.id}`, onPick, active }); };
-  const itemCard = (p) => { const [name, note] = t().items[p.id]; return card({ name, note, img: p.img, price: p.price, render: p.r, favKey: `i:${p.id}`, onCart: () => addLine({ type: "item", id: p.id }) }); };
+  const productCard = (p, onPick, active) => card({
+    name: pName(p), note: pNote(p), img: pImg(p.id), price: p.kg * 1000, priceNote: t().perKg, favKey: `p:${p.id}`, onPick, active
+  });
 
   /* radio-chip group with arrow-key support */
   const radioGroup = (container, options, current, onPick) => {
@@ -153,7 +185,62 @@
     };
   };
 
-  /* ---------- builder (one instance per page) ---------- */
+  /* shared steps of both builders: size, whole/ground, grind; and the quantity / wholesale-kg row */
+  const sizeChips = (box, cfg, kgPrice, render) => {
+    const d = t();
+    radioGroup(box, SIZES.map((s) => ({ value: s.id, fill: (n) => n.append(el("b", "num", d.sizes[s.id]), el("small", "num", s.id === "ws" ? `${money(kgPrice)} / ${d.perKg}` : money(packPrice(kgPrice, s.id)))) })), cfg.size,
+      (v) => { if (v !== cfg.size) cfg.qty = qtyRange(v).min; cfg.size = v; render(); });
+  };
+  const grindChips = (formBox, grindBox, cfg, render) => {
+    const d = t();
+    radioGroup(formBox, ["whole", "ground"].map((f) => ({ value: f, fill: (n) => n.append(el("b", null, d.forms[f])) })), cfg.form, (v) => { cfg.form = v; render(); });
+    const off = cfg.form === "whole";
+    radioGroup(grindBox, GRINDS.map((x) => ({ value: x.id, fill: (n) => { n.append(el("b", null, d.grinds[x.id]), el("small", null, d.levels[x.level - 1])); if (off) { n.disabled = true; n.tabIndex = -1; } } })), cfg.grind, (v) => { cfg.grind = v; render(); });
+    grindBox.setAttribute("aria-disabled", String(off));
+    return off;
+  };
+  const qtyRow = (box, labelBox, cfg, render) => {
+    const d = t(); const ws = cfg.size === "ws";
+    labelBox.textContent = ws ? d.sumKg : d.sumQty;
+    box.replaceChildren(stepper(cfg.qty, (q) => { cfg.qty = clampFor(cfg.size, q); render(); }, ws ? d.sumKg : d.qty, qtyRange(cfg.size), ws ? d.kgUnit : ""));
+  };
+  const wsNote = (box, ws) => {
+    box.hidden = !ws;
+    if (!ws) return;
+    const d = t(); const a = el("a", null, d.wsMore); a.href = "#/wholesale";
+    box.replaceChildren(el("span", null, `${d.wsPick} `), a);
+  };
+  const numberSteps = (host) => $$(".step-label", host).filter((n) => !n.closest("[hidden]")).forEach((n, i) => { n.querySelector("i").textContent = num(i + 1); });
+
+  const summaryHtml = (uid) => `
+      <div class="phone phone--sum" aria-live="polite">
+        <div class="ph"><img data-g="img" alt="" width="480" height="520"></div>
+        <h3 data-g="name"></h3>
+        <p class="sum-note" data-g="note"></p>
+        <ul class="sum-rows">
+          <li><span data-k="sumSize"></span><b data-g="size-v" class="num"></b></li>
+          <li data-g="grind-row"><span data-k="sumGrind"></span><b data-g="grind-v"></b></li>
+          <li><span data-g="qty-l"></span><span data-g="qty"></span></li>
+        </ul>
+        <p class="hint hint--ws" data-g="ws-note" hidden></p>
+        <div class="sum-foot">
+          <div class="total"><small data-k="sumPrice"></small><b class="num"><span data-g="price"></span> <small data-k="currency"></small></b></div>
+          <button class="btn btn--navy btn--sm" type="button" data-g="add"><svg aria-hidden="true"><use href="#i-cart"/></svg><span data-k="add"></span></button>
+        </div>
+        <p class="err" data-g="err" id="${uid}-err" role="alert"></p>
+      </div>`;
+  const grindStepsHtml = (uid, a, b) => `
+        <div data-g="form-step">
+          <div class="step-label" id="${uid}-l${a}"><i class="num"></i><span data-k="s4"></span></div>
+          <div class="chips chips--2" data-g="form" role="radiogroup" aria-labelledby="${uid}-l${a}"></div>
+        </div>
+        <div data-g="grind-step">
+          <div class="step-label" id="${uid}-l${b}"><i class="num"></i><span data-k="s5"></span></div>
+          <div class="chips chips--2" data-g="grind" role="radiogroup" aria-labelledby="${uid}-l${b}"></div>
+        </div>
+        <p class="hint" data-g="hint"></p>`;
+
+  /* ---------- product builder (one instance per page) ---------- */
   const builders = new Map();
   const mountBuilder = (host) => {
     const id = host.dataset.builder;
@@ -161,61 +248,168 @@
     host.innerHTML = `
       <div class="phone">
         <div class="phone-top"><span class="chev"><svg width="18" height="18" aria-hidden="true"><use href="#i-chev"/></svg></span><span data-k="bPhone"></span><span style="width:34px"></span></div>
-        <div class="step-label" id="${uid}-l1"><i class="num">1</i><span data-k="s1"></span></div>
-        <div class="chips chips--2" data-g="blend" role="radiogroup" aria-labelledby="${uid}-l1"></div>
-        <div class="step-label" id="${uid}-l2"><i class="num">2</i><span data-k="s2"></span></div>
-        <div class="chips chips--3" data-g="size" role="radiogroup" aria-labelledby="${uid}-l2"></div>
-        <div class="step-label" id="${uid}-l3"><i class="num">3</i><span data-k="s3"></span></div>
-        <div class="chips chips--2" data-g="form" role="radiogroup" aria-labelledby="${uid}-l3"></div>
-        <div data-g="grind-step">
-          <div class="step-label" id="${uid}-l4"><i class="num">4</i><span data-k="s4"></span></div>
-          <div class="chips chips--2" data-g="grind" role="radiogroup" aria-labelledby="${uid}-l4"></div>
-        </div>
-        <p class="hint" data-g="hint"></p>
-      </div>
-      <div class="phone phone--sum" aria-live="polite">
-        <div class="ph"><img data-g="img" alt="" width="600" height="640"></div>
-        <h3 data-g="name"></h3>
-        <ul class="sum-rows">
-          <li><span data-k="sumSize"></span><b data-g="size-v" class="num"></b></li>
-          <li><span data-k="sumGrind"></span><b data-g="grind-v"></b></li>
-          <li><span data-k="sumQty"></span><span data-g="qty"></span></li>
-        </ul>
-        <div class="sum-foot">
-          <div class="total"><small data-k="sumPrice"></small><b class="num"><span data-g="price"></span> <small data-k="currency"></small></b></div>
-          <button class="btn btn--navy btn--sm" type="button" data-g="add"><svg aria-hidden="true"><use href="#i-cart"/></svg><span data-k="add"></span></button>
-        </div>
-      </div>`;
-    const cfg = { blend: "a70", size: "250", form: "ground", grind: "espHome", qty: 1 };
+        <div class="step-label" id="${uid}-l1"><i class="num"></i><span data-k="s1"></span></div>
+        <div class="chips chips--cats" data-g="cat" role="radiogroup" aria-labelledby="${uid}-l1"></div>
+        <div class="step-label" id="${uid}-l2"><i class="num"></i><span data-k="s2"></span></div>
+        <div class="chips chips--2" data-g="product" role="radiogroup" aria-labelledby="${uid}-l2"></div>
+        <div class="step-label" id="${uid}-l3"><i class="num"></i><span data-k="s3"></span></div>
+        <div class="chips chips--2" data-g="size" role="radiogroup" aria-labelledby="${uid}-l3"></div>
+        ${grindStepsHtml(uid, 4, 5)}
+      </div>${summaryHtml(uid)}`;
+    const cfg = { cat: "mix", id: "mixA70", size: "250", form: "ground", grind: "espHome", qty: 1 };
     const g = (k) => host.querySelector(`[data-g="${k}"]`);
     const render = () => {
       const d = t();
       host.querySelectorAll("[data-k]").forEach((n) => { n.textContent = d[n.dataset.k] ?? ""; });
-      host.querySelectorAll(".step-label i").forEach((n, i) => { n.textContent = num(i + 1); });
-      const blend = BLENDS.find((x) => x.id === cfg.blend);
-      const size = SIZES.find((x) => x.id === cfg.size);
-      const grind = GRINDS.find((x) => x.id === cfg.grind);
-      radioGroup(g("blend"), BLENDS.map((b) => ({ value: b.id, fill: (n) => n.append(el("b", null, d.blends[b.id][0])) })), cfg.blend, (v) => { cfg.blend = v; render(); });
-      radioGroup(g("size"), SIZES.map((s) => ({ value: s.id, fill: (n) => n.append(el("b", "num", d.sizes[s.id]), el("small", "num", money(blend.price * s.factor))) })), cfg.size, (v) => { cfg.size = v; render(); });
-      radioGroup(g("form"), ["whole", "ground"].map((f) => ({ value: f, fill: (n) => n.append(el("b", null, d.forms[f])) })), cfg.form, (v) => { cfg.form = v; render(); });
-      const off = cfg.form === "whole";
+      const p = BY_ID[cfg.id];
+      const coffee = isCoffee(p);
+      radioGroup(g("cat"), CATS.map((c) => ({ value: c.id, fill: (n) => n.append(el("b", null, d.pcats[c.id])) })), cfg.cat, (v) => { if (v !== cfg.cat) { cfg.cat = v; cfg.id = inCat(v)[0].id; } render(); });
+      radioGroup(g("product"), inCat(cfg.cat).map((x) => ({ value: x.id, fill: (n) => n.append(el("b", null, pName(x)), el("small", "num", `${money(x.kg * 1000)} / ${d.perKg}`)) })), cfg.id, (v) => { cfg.id = v; render(); });
+      sizeChips(g("size"), cfg, perKg({ type: "item", id: cfg.id }), render);
+      g("form-step").hidden = !coffee; g("grind-step").hidden = !coffee;
+      const off = coffee ? grindChips(g("form"), g("grind"), cfg, render) : true;
       g("grind-step").classList.toggle("grind-off", off);
-      g("grind-step").hidden = false;
-      radioGroup(g("grind"), GRINDS.map((x) => ({ value: x.id, fill: (n) => { n.append(el("b", null, d.grinds[x.id]), el("small", null, d.levels[x.level - 1])); if (off) { n.disabled = true; n.tabIndex = -1; } } })), cfg.grind, (v) => { cfg.grind = v; render(); });
-      g("grind").setAttribute("aria-disabled", String(off));
-      g("hint").textContent = off ? d.wholeHint : d.groundHint;
-      g("img").src = IMG[blend.img]; g("img").alt = d.blends[blend.id][0];
-      g("name").textContent = d.blends[blend.id][0];
-      g("size-v").textContent = d.sizes[size.id];
-      g("grind-v").textContent = off ? d.forms.whole : `${d.grinds[grind.id]} (${d.levels[grind.level - 1]})`;
-      g("qty").replaceChildren(stepper(cfg.qty, (q) => { cfg.qty = clampQty(q); render(); }, d.qty));
-      g("price").textContent = num(Math.round(blend.price * size.factor / 1000) * 1000 * cfg.qty);
+      g("hint").textContent = !coffee ? d.powderHint : off ? d.wholeHint : d.groundHint;
+      numberSteps(host);
+      const line = lineOf();
+      g("img").src = IMG[pImg(p.id)] || ""; g("img").alt = pName(p);
+      g("name").textContent = pName(p);
+      g("note").textContent = pNote(p);
+      g("size-v").textContent = d.sizes[cfg.size];
+      g("grind-row").hidden = !coffee;
+      g("grind-v").textContent = grindText(line);
+      qtyRow(g("qty"), g("qty-l"), cfg, render);
+      wsNote(g("ws-note"), cfg.size === "ws");
+      g("price").textContent = num(lineTotal({ ...line, qty: cfg.qty }));
     };
-    g("add").addEventListener("click", () => { addLine({ type: "bean", blend: cfg.blend, size: cfg.size, form: cfg.form, grind: cfg.grind }, cfg.qty); cfg.qty = 1; render(); });
-    const api = { render, select(blendId) { if (BLENDS.some((b) => b.id === blendId)) { cfg.blend = blendId; render(); } }, cfg };
+    const lineOf = () => {
+      const coffee = isCoffee(BY_ID[cfg.id]);
+      return { type: "item", id: cfg.id, size: cfg.size, form: coffee ? cfg.form : "na", grind: coffee && cfg.form === "ground" ? cfg.grind : "-" };
+    };
+    g("add").addEventListener("click", () => { addLine(lineOf(), cfg.qty); cfg.qty = qtyRange(cfg.size).min; render(); });
+    const api = {
+      render, cfg,
+      select(pid) { const p = BY_ID[pid]; if (p) { cfg.cat = p.cat; cfg.id = p.id; render(); } },
+      selectCat(cat) { if (CATS.some((c) => c.id === cat) && cfg.cat !== cat) { cfg.cat = cat; cfg.id = inCat(cat)[0].id; render(); } }
+    };
     builders.set(id, api);
     render();
   };
+
+  /* ---------- custom blend builder: up to five coffees with percentage shares ---------- */
+  const evenSplit = (n) => Array.from({ length: n }, (_, i) => Math.floor(100 / n) + (i < 100 % n ? 1 : 0));
+  const mountCustom = (host) => {
+    const uid = `cb-${host.dataset.custom}`;
+    host.innerHTML = `
+      <div class="phone">
+        <div class="phone-top"><span class="chev"><svg width="18" height="18" aria-hidden="true"><use href="#i-chev"/></svg></span><span data-k="cbPhone"></span><span style="width:34px"></span></div>
+        <div class="step-label" id="${uid}-l1"><i class="num"></i><span data-k="cbS1"></span></div>
+        <div class="blend-bar" data-g="bar" aria-hidden="true"></div>
+        <ol class="blend-rows" data-g="rows" aria-labelledby="${uid}-l1"></ol>
+        <div class="blend-tools">
+          <button class="btn btn--ghost btn--sm" type="button" data-g="more"><svg aria-hidden="true"><use href="#i-plus"/></svg><span data-k="cbAdd"></span></button>
+          <button class="btn btn--ghost btn--sm" type="button" data-g="even" data-k="cbEven"></button>
+          <span class="blend-sum num" data-g="sum" aria-live="polite"></span>
+        </div>
+        <div class="step-label" id="${uid}-l2"><i class="num"></i><span data-k="s3"></span></div>
+        <div class="chips chips--2" data-g="size" role="radiogroup" aria-labelledby="${uid}-l2"></div>
+        ${grindStepsHtml(uid, 3, 4)}
+      </div>${summaryHtml(uid)}`;
+    const cfg = { parts: [{ id: "brazilSantos", pct: 60 }, { id: "uganda", pct: 40 }], size: "250", form: "ground", grind: "espHome", qty: 1 };
+    const g = (k) => host.querySelector(`[data-g="${k}"]`);
+    const total = () => cfg.parts.reduce((s, x) => s + x.pct, 0);
+    const valid = () => validParts(cfg.parts);
+    const coffeeSelect = (part, i) => {
+      const d = t();
+      const sel = el("select"); sel.id = `${uid}-c${i}`; sel.setAttribute("aria-label", d.cbPart(num(i + 1)));
+      COFFEE_CATS.forEach((c) => {
+        const og = el("optgroup"); og.label = d.pcatsLong[c];
+        inCat(c).forEach((p) => {
+          const o = el("option", null, `${pName(p)} · ${money(p.kg * 1000)}`); o.value = p.id;
+          o.disabled = p.id !== part.id && cfg.parts.some((x) => x.id === p.id);
+          og.appendChild(o);
+        });
+        sel.appendChild(og);
+      });
+      sel.value = part.id;
+      sel.addEventListener("change", () => { part.id = sel.value; render(); });
+      return sel;
+    };
+    const pctInput = (part, i) => {
+      const d = t();
+      const wrap = el("div", "pct");
+      const dec = el("button"); dec.type = "button"; dec.setAttribute("aria-label", `${d.dec} · ${d.cbPart(num(i + 1))}`); dec.appendChild(icon("#i-minus"));
+      const inp = el("input"); inp.type = "number"; inp.inputMode = "numeric"; inp.min = "1"; inp.max = "100"; inp.step = "1"; inp.dir = "ltr"; inp.value = String(part.pct);
+      inp.setAttribute("aria-label", `${d.cbPct} · ${d.cbPart(num(i + 1))}`);
+      const inc = el("button"); inc.type = "button"; inc.setAttribute("aria-label", `${d.inc} · ${d.cbPart(num(i + 1))}`); inc.appendChild(icon("#i-plus"));
+      const set = (v, rerender) => { part.pct = Math.min(100, Math.max(1, Math.round(Number(toLatinDigits(v)) || 1))); if (rerender) render(); else update(); };
+      dec.addEventListener("click", () => set(part.pct - 5, true));
+      inc.addEventListener("click", () => set(part.pct + 5, true));
+      inp.addEventListener("input", () => { if (inp.value !== "") set(inp.value, false); });
+      inp.addEventListener("change", () => { if (inp.value === "") set(1, false); inp.value = String(part.pct); });
+      wrap.append(dec, inp, el("span", null, pctSign()), inc);
+      return wrap;
+    };
+    const renderRows = () => {
+      const d = t();
+      g("rows").replaceChildren(...cfg.parts.map((part, i) => {
+        const li = el("li", "blend-row");
+        const dot = el("span", "dot"); dot.style.background = BLEND_COLORS[i];
+        const rm = el("button", "mini"); rm.type = "button"; rm.appendChild(icon("#i-x")); rm.setAttribute("aria-label", `${d.remove}: ${pName(BY_ID[part.id])}`);
+        rm.disabled = cfg.parts.length <= BLEND.min;
+        rm.addEventListener("click", () => { cfg.parts.splice(i, 1); render(); });
+        li.append(dot, coffeeSelect(part, i), pctInput(part, i), rm);
+        return li;
+      }));
+      g("more").disabled = cfg.parts.length >= BLEND.max;
+    };
+    // everything that depends on the shares, without rebuilding the inputs being typed in
+    const update = () => {
+      const d = t();
+      const sum = total();
+      g("bar").replaceChildren(...cfg.parts.map((x, i) => { const s = el("i"); s.style.background = BLEND_COLORS[i]; s.style.flexGrow = String(x.pct); s.title = `${pName(BY_ID[x.id])} ${x.pct}%`; return s; }));
+      const box = g("sum"); box.classList.toggle("is-ok", sum === 100); box.classList.toggle("is-bad", sum !== 100);
+      box.textContent = sum === 100 ? `✓ ${d.cbOk}` : sum < 100 ? d.cbLeft(num(100 - sum)) : d.cbOver(num(sum - 100));
+      const ok = valid();
+      const line = lineOf();
+      const kgPrice = ok ? perKg(line) : 0;
+      sizeChips(g("size"), cfg, kgPrice, render);
+      g("price").textContent = ok ? num(lineTotal({ ...line, qty: cfg.qty })) : "—";
+      g("note").textContent = `${partsText(cfg.parts)}${ok ? ` · ${d.cbPerKg}: ${money(kgPrice)} ${d.currency}` : ""}`;
+      g("add").disabled = !ok; g("add").setAttribute("aria-describedby", `${uid}-err`);
+      g("err").textContent = ok ? "" : d.cbErr;
+    };
+    const render = () => {
+      const d = t();
+      host.querySelectorAll("[data-k]").forEach((n) => { n.textContent = d[n.dataset.k] ?? ""; });
+      renderRows();
+      const off = grindChips(g("form"), g("grind"), cfg, render);
+      g("grind-step").classList.toggle("grind-off", off);
+      g("hint").textContent = off ? d.wholeHint : d.groundHint;
+      numberSteps(host);
+      g("img").src = IMG.twobeans || ""; g("img").alt = d.customName;
+      g("name").textContent = d.customName;
+      g("size-v").textContent = d.sizes[cfg.size];
+      g("grind-v").textContent = grindText(lineOf());
+      qtyRow(g("qty"), g("qty-l"), cfg, render);
+      wsNote(g("ws-note"), cfg.size === "ws");
+      update();
+    };
+    const lineOf = () => ({ type: "blend", parts: cfg.parts.map((x) => ({ id: x.id, pct: x.pct })), size: cfg.size, form: cfg.form, grind: cfg.form === "ground" ? cfg.grind : "-" });
+    g("more").addEventListener("click", () => {
+      if (cfg.parts.length >= BLEND.max) return;
+      const free = COFFEES.find((p) => !cfg.parts.some((x) => x.id === p.id));
+      cfg.parts.push({ id: free.id, pct: Math.max(1, 100 - total()) });
+      render();
+      host.querySelector(`#${uid}-c${cfg.parts.length - 1}`)?.focus();
+    });
+    g("even").addEventListener("click", () => { evenSplit(cfg.parts.length).forEach((v, i) => { cfg.parts[i].pct = v; }); render(); });
+    g("add").addEventListener("click", () => { if (!valid()) return; addLine(lineOf(), cfg.qty); cfg.qty = qtyRange(cfg.size).min; render(); });
+    host.querySelector(".phone--sum .ph").classList.add("ph--render");
+    builders.set(`custom-${host.dataset.custom}`, { render, cfg });
+    render();
+  };
+
 
   /* ---------- renderers ---------- */
   const fillStatic = () => {
@@ -231,16 +425,18 @@
     const navItems = () => NAV.map(([k, href, page]) => { const li = el("li"); const a = el("a", null, d[k]); a.href = href; a.dataset.navPage = page; li.appendChild(a); return li; });
     $("nav-links").replaceChildren(...navItems());
     $("foot-pages").replaceChildren(...navItems());
-    $("foot-shop").replaceChildren(...CATS.map((c) => { const li = el("li"); const a = el("a", null, d[c.key]); a.href = `#/products/${c.id}`; li.appendChild(a); return li; }));
-    $$("[data-cats]").forEach((ul) => ul.replaceChildren(...CATS.map((c) => {
+    $("foot-shop").replaceChildren(...PAGE_CATS.map((c) => { const li = el("li"); const a = el("a", null, d.pcatsLong[c.id]); a.href = `#/products/${c.id}`; li.appendChild(a); return li; }));
+    $$("[data-cats]").forEach((ul) => ul.replaceChildren(...PAGE_CATS.map((c) => {
       const li = el("li"); const a = el("a"); a.href = `#/products/${c.id}`;
-      const sq = el("span", "sq"); sq.appendChild(icon(c.icon)); a.append(sq, el("span", null, d[c.key])); li.appendChild(a); return li;
+      const sq = el("span", "sq"); sq.appendChild(icon(c.icon)); a.append(sq, el("span", null, d.pcats[c.id])); li.appendChild(a); return li;
     })));
+    $$("[data-cb-tips]").forEach((ul) => ul.replaceChildren(...d.cbTips.map((x) => el("li", null, x))));
+    $$("[data-cdesc]").forEach((n) => { n.textContent = d.cDesc[n.dataset.cdesc] ?? ""; });
     $$("[data-perks]").forEach((ul) => ul.replaceChildren(...d.perks.map(([h, s], i) => { const li = el("li"); const r = el("span", "ring"); r.appendChild(icon(PERK_ICONS[i])); li.append(r, el("span", null, h), el("small", null, s)); return li; })));
     $$("[data-facts]").forEach((box) => box.replaceChildren(...d.facts.map(([n, s]) => { const x = el("div"); x.append(el("b", null, n), el("span", null, s)); return x; })));
     $$("[data-visit]").forEach(renderVisit);
     $$("[data-steps]").forEach((ol) => ol.replaceChildren(...d.steps.map((s, i) => { const li = el("li"); li.append(el("span", "step-dot num", num(i + 1)), el("span", null, s)); return li; })));
-    $("tag-price").textContent = `${money(BLENDS[0].price)} ${d.currency}`;
+    $("tag-price").textContent = `${money(packPrice(BY_ID.vietnam.kg * 1000, "250"))} ${d.currency}`;
     $$("[data-grind-guide]").forEach((box) => {
       box.replaceChildren(el("h3", "h4", d.guideH), ...GRINDS.map((x) => {
         const row = el("div", "grind-row"); const bar = el("span", "bar"); const fill = el("i"); fill.style.width = `${(x.level / 7) * 100}%`; bar.appendChild(fill);
@@ -281,72 +477,88 @@
     soc[0].textContent = d.call; soc[1].textContent = d.wa; soc[2].textContent = d.tg; soc[4].textContent = d.route;
   };
 
-  const renderBlendCards = () => {
-    const onProducts = state.route.page === "products";
-    $$("[data-blend-cards]").forEach((box) => box.replaceChildren(...BLENDS.map((b) => {
-      const active = onProducts && builders.get("products")?.cfg.blend === b.id;
-      return blendCard(b, () => pickBlend(b.id), active);
-    })));
-  };
-  const pickBlend = (id) => {
-    if (state.route.page === "products") {
-      builders.get("products")?.select(id); renderBlendCards();
+  const pickProduct = (id) => {
+    const p = BY_ID[id];
+    if (!p) return;
+    if (state.route.page === "products" && state.route.arg === p.cat) {
+      builders.get("products")?.select(id); renderProductCards();
       $("beans-builder").scrollIntoView({ behavior: "smooth", block: "start" });
     } else if (state.route.page === "order") {
       builders.get("order")?.select(id);
     } else {
-      state.pendingBlend = id; location.hash = "#/products/beans";
+      state.pending = id; location.hash = `#/products/${p.cat}`;
     }
+  };
+  const renderProductCards = () => {
+    const cat = state.route.arg;
+    const sel = builders.get("products")?.cfg.id;
+    $("items-cards").replaceChildren(...inCat(cat).map((p) => productCard(p, () => pickProduct(p.id), p.id === sel)));
   };
 
   const renderHomeShop = () => {
     const d = t();
-    $$("[data-home-tabs]").forEach((tabs) => tabs.replaceChildren(...["gear", "mugs", "more"].map((k) => {
-      const b = el("button", "tab", d[CATS.find((c) => c.id === k).key]); b.type = "button"; b.setAttribute("role", "tab"); b.setAttribute("aria-selected", String(state.homeTab === k));
+    $$("[data-home-tabs]").forEach((tabs) => tabs.replaceChildren(...CATS.map(({ id: k }) => {
+      const b = el("button", "tab", d.pcats[k]); b.type = "button"; b.setAttribute("role", "tab"); b.setAttribute("aria-selected", String(state.homeTab === k));
       b.addEventListener("click", () => { state.homeTab = k; renderHomeShop(); });
       return b;
     })));
-    $$("[data-home-shop]").forEach((box) => box.replaceChildren(...CATALOG[state.homeTab].slice(0, 4).map(itemCard)));
+    $$("[data-home-shop]").forEach((box) => box.replaceChildren(...HOME_PICKS[state.homeTab].map((id) => productCard(BY_ID[id], () => pickProduct(id)))));
+    $$("[data-home-all]").forEach((a) => { a.href = `#/products/${state.homeTab}`; });
+    renderBlendSample();
+  };
+  const SAMPLE = [{ id: "brazilSantos", pct: 50 }, { id: "ethSidamo", pct: 30 }, { id: "uganda", pct: 20 }];
+  const renderBlendSample = () => {
+    const d = t();
+    const kgPrice = perKg({ type: "blend", parts: SAMPLE });
+    $$("[data-cb-sample]").forEach((box) => {
+      const bar = el("div", "blend-bar"); bar.setAttribute("aria-hidden", "true");
+      SAMPLE.forEach((x, i) => { const s = el("i"); s.style.background = BLEND_COLORS[i]; s.style.flexGrow = String(x.pct); bar.appendChild(s); });
+      const ul = el("ul", "cb-legend");
+      SAMPLE.forEach((x, i) => { const li = el("li"); const dot = el("span", "dot"); dot.style.background = BLEND_COLORS[i]; li.append(dot, el("span", null, pName(BY_ID[x.id])), el("b", "num", `${num(x.pct)}${pctSign()}`)); ul.appendChild(li); });
+      const foot = el("div", "cb-price"); foot.append(el("small", null, d.cbPerKg), el("b", "num", `${money(kgPrice)} ${d.currency}`));
+      const sizes = el("div", "cb-sizes");
+      SIZES.filter((s) => s.id !== "ws").forEach((s) => { const x = el("span", "num"); x.append(el("small", null, d.sizes[s.id]), el("b", null, money(packPrice(kgPrice, s.id)))); sizes.appendChild(x); });
+      box.replaceChildren(el("span", "eyebrow", d.customName), bar, ul, foot, sizes);
+    });
   };
 
   const renderCatTiles = (current) => {
     const d = t();
-    $("cat-tiles").replaceChildren(...CATS.map((c) => {
-      const a = el("a", "cat-tile"); a.href = `#/products/${c.id}`; a.setAttribute("role", "tab"); a.setAttribute("aria-selected", String(c.id === current));
+    $("cat-tiles").replaceChildren(...PAGE_CATS.map((c) => {
+      const a = el("a", c.id === "custom" ? "cat-tile cat-tile--custom" : "cat-tile"); a.href = `#/products/${c.id}`; a.setAttribute("role", "tab"); a.setAttribute("aria-selected", String(c.id === current));
       const sq = el("span", "sq"); sq.appendChild(icon(c.icon));
-      const txt = el("span"); txt.append(el("b", null, d[c.key]), el("small", null, d.cDesc[c.id]));
+      const txt = el("span"); txt.append(el("b", null, d.pcats[c.id]), el("small", null, d.cDesc[c.id]));
       a.append(sq, txt); return a;
     }));
   };
 
   const renderProducts = (cat) => {
     const d = t();
-    const c = CATS.some((x) => x.id === cat) ? cat : "beans";
+    const c = PAGE_CATS.some((x) => x.id === cat) ? cat : "robusta";
+    state.route.arg = c;
     renderCatTiles(c);
-    $("cat-beans").hidden = c !== "beans";
-    $("cat-items").hidden = c === "beans";
-    if (c !== "beans") {
-      $("items-eyebrow").textContent = d.shopEyebrow;
-      $("items-h").textContent = d[CATS.find((x) => x.id === c).key];
-      $("items-lead").textContent = d.catLead[c];
-      $("items-cards").replaceChildren(...CATALOG[c].map(itemCard));
-    }
-    if (state.pendingBlend && c === "beans") {
-      const id = state.pendingBlend; state.pendingBlend = null;
-      builders.get("products")?.select(id);
+    $("cat-custom").hidden = c !== "custom";
+    $("cat-items").hidden = c === "custom";
+    if (c === "custom") return;
+    $("items-eyebrow").textContent = d.shopEyebrow;
+    $("items-h").textContent = d.pcatsLong[c];
+    $("items-lead").textContent = d.catLead[c];
+    const b = builders.get("products");
+    if (state.pending && BY_ID[state.pending]?.cat === c) {
+      b?.select(state.pending); state.pending = null;
       requestAnimationFrame(() => $("beans-builder").scrollIntoView({ block: "start" }));
-    }
-    renderBlendCards();
+    } else b?.selectCat(c);
+    renderProductCards();
   };
 
   const renderQuick = () => {
     const d = t();
-    $("quick-list").replaceChildren(...Object.values(CATALOG).flat().map((p) => {
+    $("quick-list").replaceChildren(...inCat("powder").map((p) => {
       const row = el("div", "quick");
-      const info = el("div"); info.append(el("b", null, d.items[p.id][0]), el("small", "num", `${money(p.price)} ${d.currency}`));
-      const add = el("button", "mini"); add.type = "button"; add.setAttribute("aria-label", `${d.add}: ${d.items[p.id][0]}`); add.appendChild(icon("#i-plus"));
-      add.addEventListener("click", () => addLine({ type: "item", id: p.id }));
-      row.append(productImg(p.img, p.r), info, add); return row;
+      const info = el("div"); info.append(el("b", null, pName(p)), el("small", "num", `${d.sizes["250"]} · ${money(packPrice(p.kg * 1000, "250"))} ${d.currency}`));
+      const add = el("button", "mini"); add.type = "button"; add.setAttribute("aria-label", `${d.add}: ${pName(p)}`); add.appendChild(icon("#i-plus"));
+      add.addEventListener("click", () => addLine({ type: "item", id: p.id, size: "250", form: "na", grind: "-" }, 1));
+      row.append(productImg(pImg(p.id)), info, add); return row;
     }));
   };
 
@@ -363,7 +575,7 @@
       box.replaceChildren(...state.cart.map((l) => {
         const info = describe(l);
         const row = el("div", "line");
-        const mid = el("div"); mid.append(el("b", null, info.name), el("small", null, info.detail), stepper(l.qty, (q) => setQty(l.key, q), `${d.qty}: ${info.name}`));
+        const mid = el("div"); mid.append(el("b", null, info.name), el("small", null, info.detail), stepper(l.qty, (q) => setQty(l.key, q), `${l.size === "ws" ? d.sumKg : d.qty}: ${info.name}`, qtyRange(l.size), l.size === "ws" ? d.kgUnit : ""));
         const end = el("div", "end");
         const rm = el("button", "link-btn"); rm.type = "button"; rm.append(icon("#i-trash"), el("span", null, d.remove)); rm.setAttribute("aria-label", `${d.remove}: ${info.name}`);
         rm.addEventListener("click", () => setQty(l.key, 0));
@@ -430,7 +642,7 @@
   const buildOrderText = (form, id) => {
     const d = t(); const m = d.msg;
     const pickup = form.elements.method.value === "pickup";
-    const lines = state.cart.map((l, i) => { const x = describe(l); return `${num(i + 1)}. ${x.name} · ${x.detail} × ${num(l.qty)} = ${money(lineTotal(l))} ${d.currency}`; });
+    const lines = state.cart.map((l, i) => { const x = describe(l); return l.size === "ws" ? `${num(i + 1)}. ${x.name} · ${x.detail} = ${money(lineTotal(l))} ${d.currency}` : `${num(i + 1)}. ${x.name} · ${x.detail} × ${num(l.qty)} = ${money(lineTotal(l))} ${d.currency}`; });
     return [
       `☕ ${m.order}`, `${m.id}: ${id}`, "",
       `${m.name}: ${val(form, "name")}`, `${m.phone}: ${normPhone(val(form, "phone"))}`,
@@ -492,9 +704,14 @@
     $$("[data-ws-steps]").forEach((ol) => ol.replaceChildren(...d.wsSteps.map(([h, s]) => { const li = el("li"); li.append(el("b", null, h), el("span", null, s)); return li; })));
     $$("[data-ab-steps]").forEach((ol) => ol.replaceChildren(...d.abSteps.map(([h, s]) => { const li = el("li"); li.append(el("b", null, h), el("span", null, s)); return li; })));
     const checked = new Set($$('[data-ws-blends] input:checked').map((i) => i.value));
-    $$("[data-ws-blends]").forEach((box) => box.replaceChildren(...BLENDS.map((b) => {
-      const lab = el("label"); const inp = el("input"); inp.type = "checkbox"; inp.name = "blends"; inp.value = b.id; inp.checked = checked.has(b.id);
-      lab.append(inp, el("span", null, d.blends[b.id][0])); return lab;
+    $$("[data-ws-blends]").forEach((box) => box.replaceChildren(...CATS.map((c) => {
+      const grp = el("div", "check-group"); grp.appendChild(el("b", "check-h", d.pcatsLong[c.id]));
+      const list = el("div", "checks");
+      inCat(c.id).forEach((p) => {
+        const lab = el("label"); const inp = el("input"); inp.type = "checkbox"; inp.name = "blends"; inp.value = p.id; inp.checked = checked.has(p.id);
+        lab.append(inp, el("span", null, pName(p))); list.appendChild(lab);
+      });
+      grp.appendChild(list); return grp;
     })));
     updateTierHint();
   };
@@ -511,7 +728,7 @@
       e.preventDefault();
       const d = t(); const m = d.msg; clearErrs(form); $("ws-ok").hidden = true;
       const kg = Number(toLatinDigits(val(form, "kg")));
-      const blends = $$('[data-ws-blends] input:checked').map((i) => d.blends[i.value][0]);
+      const blends = $$('[data-ws-blends] input:checked').map((i) => pName(BY_ID[i.value]));
       if (!val(form, "biz")) setErr(form, "biz", d.eBiz);
       if (!val(form, "name")) setErr(form, "name", d.eName);
       if (!normPhone(val(form, "phone"))) setErr(form, "phone", d.ePhone);
@@ -678,6 +895,7 @@
   const renderPage = () => {
     const r = state.route; const d = t();
     if (r.page === "products") renderProducts(r.arg);
+    if (r.page === "products" && r.arg === "custom") builders.get("custom-products")?.render();
     if (r.page === "order") { renderQuick(); builders.get("order")?.render(); }
     if (r.page === "wholesale") renderWholesale();
     if (r.page === "blog") renderBlog();
@@ -686,7 +904,6 @@
     if (r.page === "home") { renderHomeShop(); renderLatest(); }
     if (r.page === "article") { if (!renderArticle(r.arg)) return; }
     else document.title = r.page === "home" ? `${d.title} | ${d.pages.home}` : `${d.pages[r.page]} | ${d.title}`;
-    renderBlendCards();
   };
   const route = (first) => {
     const legacy = (location.hash || "").replace("#", "");
@@ -746,11 +963,12 @@
     $("scrim").addEventListener("click", closeDrawer);
     $("drawer-checkout").addEventListener("click", () => closeDrawer());
     window.addEventListener("hashchange", () => route(false));
-    window.addEventListener("storage", (e) => { if (e.key === "maad-cart-v1") { loadCart(); renderCart(); } });
+    window.addEventListener("storage", (e) => { if (e.key === CART_KEY) { loadCart(); renderCart(); } });
   };
 
   safe("load", () => { loadCart(); const f = store.get("maad-favs-v1", []); state.favs = new Set(Array.isArray(f) ? f.filter((x) => typeof x === "string") : []); });
   safe("builders", () => $$("[data-builder]").forEach(mountBuilder));
+  safe("custom", () => $$("[data-custom]").forEach(mountCustom));
   safe("beans", beanRing);
   safe("lang", () => apply(initialLang(), true));
   safe("nav", initNav);

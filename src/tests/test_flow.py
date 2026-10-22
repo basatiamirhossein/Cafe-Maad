@@ -39,50 +39,87 @@ async def main() -> None:
         check(await pg.evaluate("!document.querySelector('[data-page=home]').hidden"), "unknown route falls back to home")
         await pg.evaluate("location.hash='#/blog/99'"); await pg.wait_for_timeout(250)
         check(await pg.evaluate("location.hash") == "#/blog", "missing article redirects to blog list")
-        for r, page in [("#/products/gear", "products"), ("#/order", "order"), ("#/wholesale", "wholesale"), ("#/blog/05", "article"), ("#/about", "about"), ("#/contact", "contact")]:
+        for r, page in [("#/products/powder", "products"), ("#/order", "order"), ("#/wholesale", "wholesale"), ("#/blog/05", "article"), ("#/about", "about"), ("#/contact", "contact")]:
             await pg.evaluate(f"location.hash='{r}'"); await pg.wait_for_timeout(150)
             vis = await pg.evaluate("[...document.querySelectorAll('.page')].filter(p=>!p.hidden).map(p=>p.dataset.page)")
             check(vis == [page], f"route {r} shows only {page}")
         check(await pg.evaluate("document.querySelector('.nav-links [aria-current=page]')?.dataset.navPage") == "contact", "active nav link marked")
 
-        # home blend card -> products builder with that blend
+        # home product card -> products page of its category, preselected in the builder
         await pg.evaluate("location.hash='#/'"); await pg.wait_for_timeout(200)
-        await pg.locator('[data-page=home] [data-blend-cards] .card').nth(2).locator(".pick").click(); await pg.wait_for_timeout(300)
-        check(await pg.evaluate("location.hash") == "#/products/beans", "blend card opens products/beans")
-        sel = await pg.evaluate("document.querySelector('[data-builder=products] [data-g=blend] [aria-checked=true]').textContent")
-        check("۱۰۰٪ عربیکا" in sel, f"picked blend preselected ({sel})")
+        check(await pg.evaluate("document.querySelectorAll('[data-home-tabs] .tab').length") == 5, "home shows 5 category tabs")
+        await pg.locator('[data-page=home] [data-home-shop] .card').nth(1).locator(".pick").click(); await pg.wait_for_timeout(300)
+        check(await pg.evaluate("location.hash") == "#/products/mix", "mix card opens products/mix")
+        sel = await pg.evaluate("document.querySelector('[data-builder=products] [data-g=product] [aria-checked=true]').textContent")
+        check("میکس ۱۰۰٪ عربیکا" in sel, f"picked product preselected ({sel})")
+        check(await pg.evaluate("document.querySelectorAll('#items-cards .card').length") == 8, "mix category lists 8 products")
 
-        # builder pricing: 100% arabica 520000 x 1.9 (500 g) = 988000, qty 2
+        # builder pricing: Mix 100% Arabica 3,400,000 per kg -> 500 g = 1,700,000, qty 2
         bld = pg.locator("[data-builder=products]")
         await bld.locator("[data-g=size] .chip").nth(1).click()
         await bld.locator("[data-g=form] .chip").nth(1).click()
         await bld.locator("[data-g=grind] .chip").nth(5).click()
-        await bld.locator(".stepper button").nth(1).click()
+        await bld.locator(".phone--sum .stepper button").nth(1).click()
         price = await bld.locator("[data-g=price]").text_content()
-        check(price == "۱٬۹۷۶٬۰۰۰", f"builder price 2 x 500 g arabica = 1,976,000 ({price})")
+        check(price == "۳٬۴۰۰٬۰۰۰", f"builder price 2 x 500 g = 3,400,000 ({price})")
         check("دمی V60" in await bld.locator("[data-g=grind-v]").text_content(), "summary shows chosen grind")
         await bld.locator("[data-g=form] .chip").nth(0).click()
         check(await bld.locator("[data-g=grind] .chip").first.is_disabled(), "grind chips disabled for whole bean")
         await bld.locator("[data-g=form] .chip").nth(1).click()
         await bld.locator("[data-g=add]").click()
         check(await pg.text_content("#cart-count") == "۲", "cart badge shows 2 after adding qty 2")
-        # same config again merges
         await bld.locator("[data-g=add]").click()
-        cart = await pg.evaluate("JSON.parse(localStorage.getItem('maad-cart-v1'))")
+        cart = await pg.evaluate("JSON.parse(localStorage.getItem('maad-cart-v2'))")
         check(len(cart) == 1 and cart[0]["qty"] == 3, f"same config merges into one line ({cart})")
+        # 250 g is proportional, rounded up to 1,000 toman: Vietnam 1,850,000 / 4 = 462,500 -> 463,000
+        await bld.locator("[data-g=cat] .chip").nth(0).click()
+        await bld.locator("[data-g=size] .chip").nth(0).click()
+        check(await bld.locator("[data-g=price]").text_content() == "۴۶۳٬۰۰۰", "Vietnam 250 g = 463,000")
+        check(await bld.locator("[data-g=size] .chip").nth(2).locator("small").text_content() == "۱٬۸۵۰٬۰۰۰", "Vietnam 1 kg = list price")
+        # wholesale: kg stepper from 5 kg at the per-kg price
+        await bld.locator("[data-g=size] .chip").nth(3).click()
+        check(await bld.locator("[data-g=price]").text_content() == "۹٬۲۵۰٬۰۰۰", "wholesale 5 kg x 1,850,000")
+        check(await pg.evaluate("!document.querySelector('[data-builder=products] [data-g=ws-note]').hidden"), "wholesale note shown")
+        await bld.locator(".phone--sum .stepper button").nth(1).click()
+        check(await bld.locator("[data-g=price]").text_content() == "۱۱٬۱۰۰٬۰۰۰", "wholesale 6 kg")
+        # powders skip the grind steps
+        await bld.locator("[data-g=cat] .chip").nth(4).click()
+        check(await pg.evaluate("document.querySelector('[data-builder=products] [data-g=form-step]').hidden"), "powder hides whole/ground step")
         # keyboard: arrow keys move radio selection
-        await bld.locator("[data-g=blend] [aria-checked=true]").focus()
+        await bld.locator("[data-g=product] [aria-checked=true]").focus()
         await pg.keyboard.press("ArrowLeft"); await pg.wait_for_timeout(120)
         k = await pg.evaluate("document.activeElement.getAttribute('aria-checked')")
         check(k == "true", "arrow key moves and focuses selected chip")
 
-        # item from another category
-        await pg.evaluate("location.hash='#/products/mugs'"); await pg.wait_for_timeout(200)
-        await pg.locator("#items-cards .card").first.locator(".acts .mini").first.click()
-        check(await pg.text_content("#cart-count") == "۴", "item add increments badge")
+        # custom blend: 60% Brazil Santos (3,400) + 40% Uganda (2,250) = 2,940,000 per kg
+        await pg.evaluate("location.hash='#/products/custom'"); await pg.wait_for_timeout(250)
+        cb = pg.locator("[data-custom=products]")
+        check(await cb.locator("[data-g=price]").text_content() == "۷۳۵٬۰۰۰", "custom blend 250 g = 735,000")
+        await cb.locator(".blend-row input").nth(0).fill("50"); await cb.locator(".blend-row input").nth(0).dispatch_event("change"); await pg.wait_for_timeout(100)
+        check(await cb.locator("[data-g=add]").is_disabled(), "shares not adding to 100 block the cart")
+        check("۱۰" in await cb.locator("[data-g=sum]").text_content(), "remaining share shown")
+        await cb.locator("[data-g=even]").click()
+        check(await cb.locator("[data-g=price]").text_content() == "۷۰۷٬۰۰۰", "50/50 blend 250 g = 706,250 rounded up")
+        for _ in range(3):
+            await cb.locator("[data-g=more]").click()
+        check(await cb.locator(".blend-row").count() == 5 and await cb.locator("[data-g=more]").is_disabled(), "at most five coffees")
+        await cb.locator("[data-g=even]").click()
+        await cb.locator(".blend-row .mini").nth(4).click(); await cb.locator(".blend-row .mini").nth(3).click(); await cb.locator(".blend-row .mini").nth(2).click()
+        check(await cb.locator(".blend-row .mini").first.is_disabled(), "at least two coffees")
+        await cb.locator("[data-g=even]").click()
+        await cb.locator("[data-g=add]").click()
+        cart = await pg.evaluate("JSON.parse(localStorage.getItem('maad-cart-v2'))")
+        check(any(l["type"] == "blend" and [p["pct"] for p in l["parts"]] == [50, 50] for l in cart), "custom blend added to cart")
+        check(await pg.text_content("#cart-count") == "۴", "badge counts 3 packs + 1 blend")
+
+        # item from the powders category through the card's pick
+        await pg.evaluate("location.hash='#/products/powder'"); await pg.wait_for_timeout(200)
+        check(await pg.evaluate("document.querySelectorAll('#items-cards .card').length") == 14, "powders list 14 products")
         # favourite persists
         await pg.locator("#items-cards .card").first.locator(".acts .mini").nth(1).click()
-        check(await pg.evaluate("JSON.parse(localStorage.getItem('maad-favs-v1')).includes('i:mugCoral')"), "favourite saved")
+        check(await pg.evaluate("JSON.parse(localStorage.getItem('maad-favs-v1')).includes('p:masala')"), "favourite saved")
+        await pg.locator("#items-cards .card").nth(1).locator(".pick").click(); await pg.wait_for_timeout(200)
+        check("ماسالا بدون شکر" in await pg.text_content("[data-builder=products] [data-g=name]"), "powder card selects it in the builder")
 
         # drawer
         await pg.click("#cart-btn")
@@ -95,10 +132,10 @@ async def main() -> None:
         await pg.reload(); await pg.wait_for_timeout(400)
         check(await pg.text_content("#cart-count") == "۴", "cart survives reload")
         # corrupted storage is ignored
-        await pg.evaluate("localStorage.setItem('maad-cart-v1', JSON.stringify([{type:'item',id:'hack',qty:5},{type:'bean',blend:'a70',size:'250',form:'ground',grind:'x',qty:1}, ...JSON.parse(localStorage.getItem('maad-cart-v1'))]))")
+        await pg.evaluate("localStorage.setItem('maad-cart-v2', JSON.stringify([{type:'item',id:'hack',size:'250',form:'na',qty:5},{type:'item',id:'vietnam',size:'250',form:'ground',grind:'x',qty:1},{type:'blend',parts:[{id:'vietnam',pct:60},{id:'uganda',pct:30}],size:'250',form:'whole',qty:1},{type:'item',id:'masala',size:'250',form:'ground',grind:'v60',qty:1}, ...JSON.parse(localStorage.getItem('maad-cart-v2'))]))")
         await pg.reload(); await pg.wait_for_timeout(400)
         check(await pg.text_content("#cart-count") == "۴", "invalid stored lines dropped")
-        await pg.evaluate("localStorage.setItem('maad-cart-v1','{bad json')"); await pg.reload(); await pg.wait_for_timeout(300)
+        await pg.evaluate("localStorage.setItem('maad-cart-v2','{bad json')"); await pg.reload(); await pg.wait_for_timeout(300)
         check(await pg.text_content("#cart-count") == "۰", "broken storage does not crash")
 
         # rebuild a cart, then checkout
@@ -111,7 +148,7 @@ async def main() -> None:
         await pg.locator("#quick-list .quick").first.locator("button").click()
         await pg.locator("[data-page=order] [data-cart-list] .stepper button").nth(1).click()
         sub = await pg.evaluate("document.querySelector('[data-page=order] [data-totals] .grand b').textContent")
-        check(sub.startswith("۱٬۵۳۰٬۰۰۰"), f"total = 2 x 420,000 + 690,000 = 1,530,000 ({sub})")
+        check(sub.startswith("۱٬۸۳۱٬۰۰۰"), f"total = 2 x 778,000 (Mix 70% Arabica 250 g) + 275,000 (Masala 250 g) = 1,831,000 ({sub})")
         await pg.fill("#co-name", "امیر"); await pg.fill("#co-phone", "۰۹۱۲ ۳۴۵ ۶۷۸۹")
         await pg.click("label:has(input[value=pickup])")
         check(await pg.evaluate("document.getElementById('addr-field').hidden"), "pickup hides address")
@@ -120,7 +157,7 @@ async def main() -> None:
         opened = await pg.evaluate("window.__opened")
         check(len(opened) == 1 and opened[0].startswith("https://wa.me/989336058471?text="), "checkout opens WhatsApp to the cafe number")
         text = urllib.parse.unquote(opened[0].split("text=")[1]) if opened else ""
-        check("09123456789" in text and "تحویل در کافه" in text and "دریپر سرامیکی V60" in text and "× ۲" in text and "بدون شکر" in text, "order message has phone, method, items, qty, note")
+        check("09123456789" in text and "تحویل در کافه" in text and "میکس ۷۰٪ عربیکا" in text and "ماسالا" in text and "× ۲" in text and "بدون شکر" in text, "order message has phone, method, items, qty, note")
         check(await pg.evaluate("!document.getElementById('order-done').hidden") and (await pg.text_content("#done-id")).startswith("MAAD-"), "confirmation with order id shown")
         check(await pg.text_content("#cart-count") == "۰", "cart cleared after order")
         await pg.click("#done-new")
@@ -144,7 +181,7 @@ async def main() -> None:
         await pg.click("#wsform button[type=submit]"); await pg.wait_for_timeout(200)
         opened = await pg.evaluate("window.__opened")
         wtext = urllib.parse.unquote(opened[-1].split("text=")[1])
-        check("کافه نمونه" in wtext and "۲۵" in wtext and "فول کافئین" in wtext, "wholesale message content")
+        check("کافه نمونه" in wtext and "۲۵" in wtext and "ویتنام" in wtext and "اوگاندا" in wtext, "wholesale message content")
         check(await pg.evaluate("!document.getElementById('ws-ok').hidden"), "wholesale success note shown")
 
         # contact

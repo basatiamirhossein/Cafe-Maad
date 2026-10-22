@@ -45,8 +45,9 @@ ART_IMGS = {
     "13": ["v60", "press"], "14": ["v60", "moka"], "15": ["portafilter", "grinder"], "16": ["beans-r70", "twobeans"],
     "17": ["beans-r100", "pouch"], "18": ["cup-a70", "grounds"], "19": ["cup-hero", "portafilter"], "20": ["housebox", "cup-big"],
 }
-JS_IMGS = ["beans-a70", "beans-r70", "beans-a100", "beans-r100", "beans-ground", "v60", "moka", "press", "grinder", "mug-coral", "mug-navy", "flask",
-           "tumbler", "giftbox-photo", "housebox", "jar", "syrup", "pouch", "filters", "choco", "bean-a", "bean-b", "bean-c", "portafilter"]
+JS_IMGS = ["bean-a", "bean-b", "bean-c", "portafilter", "twobeans"]
+CATALOG = H / "catalog.json"
+PRODUCT_IMGS = H / "assets" / "products"  # made by tools/products.py
 
 _cache: dict[str, str] = {}
 
@@ -59,7 +60,9 @@ def uri(name: str) -> str:
     if name in _cache:
         return _cache[name]
     webp = ASSETS / "img" / f"{name}.webp"
-    if name not in PHOTO_ALIASES and webp.exists():
+    if name.startswith("p-"):
+        data = (PRODUCT_IMGS / f"{name[2:]}.webp").read_bytes()
+    elif name not in PHOTO_ALIASES and webp.exists():
         data = webp.read_bytes()
     else:
         src = ASSETS / "photo" / f"{PHOTO_ALIASES.get(name, name)}.jpg"
@@ -115,11 +118,16 @@ def build() -> None:
         f'@font-face{{font-family:"{a}";src:url(data:font/woff2;base64,{base64.b64encode((FONTS / f).read_bytes()).decode()}) format("woff2");font-weight:{w};{x}font-display:swap}}'
         for a, f, w, x in FACES)
     arts = articles()
-    used = sorted(set(JS_IMGS) | {n for v in ART_IMGS.values() for n in v})
+    products = json.loads(CATALOG.read_text(encoding="utf-8"))["products"]
+    missing = [p["id"] for p in products if not (PRODUCT_IMGS / f"{p['id']}.webp").exists()]
+    if missing:
+        sys.exit(f"missing product photos (run src/tools/products.py): {', '.join(missing)}")
+    used = sorted(set(JS_IMGS) | {n for v in ART_IMGS.values() for n in v} | {f"p-{p['id']}" for p in products})
     art_json = json.dumps(arts, ensure_ascii=False).replace("</", "<\\/")
     app = (H / "app.js").read_text(encoding="utf-8")
     app = app.replace("/*I18N*/", (H / "i18n.js").read_text(encoding="utf-8"), 1)
     app = app.replace("/*ARTICLES*/[]", art_json, 1)
+    app = app.replace("/*CATALOG*/[]", json.dumps(products, ensure_ascii=False), 1)
     app = app.replace("/*IMGMAP*/", ",".join(f'"{n}":"{uri(n)}"' for n in used), 1)
     body = re.sub(r"\{\{IMG:([\w-]+)\}\}", lambda m: uri(m.group(1)), (H / "body.html").read_text(encoding="utf-8"))
     css = (H / "base.css").read_text(encoding="utf-8").replace("{{IMG:bg}}", uri("bg")) + "\n" + (H / "pages.css").read_text(encoding="utf-8")
@@ -135,7 +143,7 @@ def build() -> None:
             '<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">\n<link rel="manifest" href="manifest.webmanifest">\n'
             '<meta name="apple-mobile-web-app-title" content="کافه ماد">\n')
     OUT.write_text(head + page[:t_end] + "\n</head>\n<body>\n" + page[t_end:] + "</body>\n</html>\n", encoding="utf-8")
-    print(f"site.html {len(page) / 1e6:.2f} MB, {len(arts)} articles, {len(used)} images")
+    print(f"site.html {len(page) / 1e6:.2f} MB, {len(arts)} articles, {len(products)} products, {len(used)} images")
 
 
 if __name__ == "__main__":

@@ -45,9 +45,10 @@
       <section class="sec sec--flush" aria-labelledby="hp-title">
         <div class="sec-head">
           <div><span class="eyebrow" data-i18n="pEyebrow"></span><h2 class="h2" id="hp-title" data-i18n="pTitle"></h2><p class="lead" data-i18n="pLead"></p></div>
-          <a class="btn btn--ghost" href="#/products/beans"><span data-i18n="pAll"></span><svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn--ghost" href="#/products/mix" data-home-all><span data-i18n="pAll"></span><svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
-        <div class="cards" data-blend-cards></div>
+        <div class="tabs" role="tablist" data-i18n-aria="navProducts" data-home-tabs></div>
+        <div class="cards" data-home-shop role="tabpanel"></div>
       </section>
 
       <section class="sec story" aria-labelledby="s-title">
@@ -74,13 +75,15 @@
         <div class="builder-ui" data-builder="home"></div>
       </section>
 
-      <section class="sec" aria-labelledby="shop-title">
-        <div class="sec-head">
-          <div><span class="eyebrow" data-i18n="shopEyebrow"></span><h2 class="h2" id="shop-title" data-i18n="shopTitle"></h2></div>
-          <a class="btn btn--ghost" href="#/products/gear"><span data-i18n="shopAll"></span><svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <section class="sec cb-teaser" aria-labelledby="hcb-title">
+        <div>
+          <span class="eyebrow" data-i18n="cbEyebrow"></span>
+          <h2 class="h2" id="hcb-title" data-i18n="cbTitle"></h2>
+          <p class="lead" data-i18n="cbLead"></p>
+          <ul class="cb-tips" data-cb-tips></ul>
+          <a class="btn btn--navy" href="#/products/custom"><span data-i18n="cbCta"></span><svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
-        <div class="tabs" role="tablist" data-home-tabs></div>
-        <div class="cards" data-home-shop role="tabpanel"></div>
+        <div class="cb-sample panel" data-cb-sample></div>
       </section>
 
       <section class="sec sec--flush" aria-label="Contact"><div data-visit></div></section>
@@ -102,9 +105,9 @@
         <p class="lead" data-i18n="prodLead"></p>
         <div class="cat-tiles" role="tablist" data-i18n-aria="navProducts" id="cat-tiles"></div>
       </section>
-      <section class="sec sec--flush" id="cat-beans" aria-labelledby="beans-h">
-        <div class="sec-head"><div><span class="eyebrow" data-i18n="c1"></span><h2 class="h2" id="beans-h" data-i18n="pTitle"></h2><p class="lead" data-i18n="pLead"></p></div></div>
-        <div class="cards" data-blend-cards></div>
+      <section class="sec sec--flush" id="cat-items" aria-labelledby="items-h">
+        <div class="sec-head"><div><span class="eyebrow" id="items-eyebrow"></span><h2 class="h2" id="items-h"></h2><p class="lead" id="items-lead"></p></div></div>
+        <div class="cards" id="items-cards"></div>
         <div class="builder builder--page" id="beans-builder">
           <div class="builder-copy">
             <span class="eyebrow" data-i18n="bEyebrow"></span>
@@ -115,9 +118,17 @@
           <div class="builder-ui" data-builder="products"></div>
         </div>
       </section>
-      <section class="sec sec--flush" id="cat-items" aria-labelledby="items-h" hidden>
-        <div class="sec-head"><div><span class="eyebrow" id="items-eyebrow"></span><h2 class="h2" id="items-h"></h2><p class="lead" id="items-lead"></p></div></div>
-        <div class="cards" id="items-cards"></div>
+      <section class="sec sec--flush" id="cat-custom" aria-labelledby="cb-h" hidden>
+        <div class="builder builder--page">
+          <div class="builder-copy">
+            <span class="eyebrow" data-i18n="cbEyebrow"></span>
+            <h2 class="h2" id="cb-h" data-i18n="cbTitle"></h2>
+            <p class="lead" data-i18n="cbLead"></p>
+            <ul class="cb-tips" data-cb-tips></ul>
+            <div class="grind-guide" data-grind-guide></div>
+          </div>
+          <div class="builder-ui" data-custom="products"></div>
+        </div>
       </section>
     </div>
 
@@ -133,6 +144,7 @@
         <div class="order-build">
           <h2 class="h3"><span class="step-dot num" data-i18n="n1"></span><span data-i18n="step1"></span></h2>
           <div class="builder-ui builder-ui--wide" data-builder="order"></div>
+          <a class="cb-link" href="#/products/custom"><span class="sq"><svg aria-hidden="true"><use href="#i-plus"/></svg></span><span><b data-i18n="cbTitle"></b><small data-cdesc="custom"></small></span><svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
         <div class="order-side">
           <div class="panel" aria-labelledby="cart-h2">
