@@ -227,6 +227,9 @@ p { margin: 0; }
 .foot a:hover { color: var(--coral-d); }
 .foot .about { font-size: 0.86rem; color: var(--muted); margin-top: 12px; max-width: 36ch; }
 .copy { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-top: 30px; font-size: 0.76rem; color: var(--muted); }
+.dev-credit { margin: 14px 0 0; text-align: center; font-size: 0.72rem; color: var(--muted); opacity: 0.85; }
+.dev-credit a { color: inherit; font-weight: 700; text-decoration: none; border-bottom: 1px dotted currentColor; }
+.dev-credit a:hover, .dev-credit a:focus-visible { color: var(--coral); }
 .ltr { direction: ltr; unicode-bidi: isolate; display: inline-block; }
 
 .toast { position: fixed; inset-block-end: calc(env(safe-area-inset-bottom, 0px) + 20px); inset-inline-start: 50%; transform: translate(-50%, 20px); opacity: 0; padding: 12px 22px; border-radius: var(--pill); background: var(--navy); color: var(--on-navy); font-weight: 700; z-index: 80; transition: opacity .3s, transform .3s; pointer-events: none; }

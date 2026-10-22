@@ -248,6 +248,9 @@ p { margin: 0; }
 .foot a:hover { color: var(--coral-d); }
 .foot .about { font-size: 0.86rem; color: var(--muted); margin-top: 12px; max-width: 36ch; }
 .copy { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-top: 30px; font-size: 0.76rem; color: var(--muted); }
+.dev-credit { margin: 14px 0 0; text-align: center; font-size: 0.72rem; color: var(--muted); opacity: 0.85; }
+.dev-credit a { color: inherit; font-weight: 700; text-decoration: none; border-bottom: 1px dotted currentColor; }
+.dev-credit a:hover, .dev-credit a:focus-visible { color: var(--coral); }
 .ltr { direction: ltr; unicode-bidi: isolate; display: inline-block; }
 
 .toast { position: fixed; inset-block-end: calc(env(safe-area-inset-bottom, 0px) + 20px); inset-inline-start: 50%; transform: translate(-50%, 20px); opacity: 0; padding: 12px 22px; border-radius: var(--pill); background: var(--navy); color: var(--on-navy); font-weight: 700; z-index: 80; transition: opacity .3s, transform .3s; pointer-events: none; }
@@ -979,6 +982,7 @@ a.post:hover { transform: translateY(-3px); }
       <div><h3 class="foot-h" data-i18n="fContact"></h3><ul><li data-i18n="addr"></li><li data-i18n="hours"></li><li><a class="ltr num" href="tel:+989336058471" data-i18n="phone"></a></li><li class="foot-soc"><a href="https://instagram.com/ghahvemaad_satarkhan" target="_blank" rel="noopener">Instagram</a><a href="https://t.me/+989336058471" target="_blank" rel="noopener" data-i18n="tg"></a><a href="https://wa.me/989336058471" target="_blank" rel="noopener" data-i18n="wa"></a></li></ul></div>
     </div>
     <div class="copy"><span data-i18n="copy"></span><span data-i18n="sample"></span></div>
+    <p class="dev-credit"><span data-i18n="devBy"></span> <a href="https://datadevvv.ir" target="_blank" rel="noopener" data-i18n="devName"></a></p>
   </footer>
 </div>
 
@@ -1086,7 +1090,7 @@ a.post:hover { transform: translateY(-3px); }
       wEyebrow: "سفارش عمده", wTitle: "قهوه‌ی عمده برای کافه، رستوران و دفتر کار؟", wLead: "قیمت پلکانی از ۵ کیلوگرم، فاکتور رسمی و ارسال منظم هفتگی.", wCta: "درخواست پیش‌فاکتور",
       about: "کافه ماد قهوه را هر هفته خودش برشت می‌دهد؛ برای خانه، دفتر و کافه.",
       fPages: "صفحه‌ها", fShop: "فروشگاه", fContact: "تماس با ما",
-      copy: "© ۱۴۰۵ کافه ماد. همه‌ی حقوق محفوظ است.", sample: "قیمت‌ها و درصدهای تخفیف نمونه‌اند."
+      copy: "© ۱۴۰۵ کافه ماد. همه‌ی حقوق محفوظ است.", sample: "قیمت‌ها و درصدهای تخفیف نمونه‌اند.", devBy: "توسعه‌دهنده:", devName: "DataDev · امیرحسین بساطی"
     },
     en: {
       dir: "ltr", locale: "en-US", title: "Cafe Maad", brand: "Cafe Maad",
@@ -1178,7 +1182,7 @@ a.post:hover { transform: translateY(-3px); }
       wEyebrow: "Wholesale", wTitle: "Wholesale coffee for your café or office?", wLead: "Tiered pricing from 5 kg, official invoices and weekly delivery.", wCta: "Request a quote",
       about: "Cafe Maad roasts its own coffee every week, for homes, offices and cafés.",
       fPages: "Pages", fShop: "Shop", fContact: "Contact",
-      copy: "© 2026 Cafe Maad. All rights reserved.", sample: "Prices and discount rates are samples."
+      copy: "© 2026 Cafe Maad. All rights reserved.", sample: "Prices and discount rates are samples.", devBy: "Developed by", devName: "DataDev · Amirhossein Basati"
     },
     ar: {
       dir: "rtl", locale: "ar-EG", title: "كافيه ماد", brand: "كافيه ماد",
@@ -1270,7 +1274,7 @@ a.post:hover { transform: translateY(-3px); }
       wEyebrow: "طلبات الجملة", wTitle: "قهوة بالجملة لمقهاك أو مكتبك؟", wLead: "أسعار متدرجة ابتداءً من ٥ كغ، وفاتورة رسمية، وتوصيل أسبوعي.", wCta: "اطلب عرض سعر",
       about: "يحمّص كافيه ماد قهوته بنفسه كل أسبوع، للمنازل والمكاتب والمقاهي.",
       fPages: "الصفحات", fShop: "المتجر", fContact: "اتصل بنا",
-      copy: "© ٢٠٢٦ كافيه ماد. جميع الحقوق محفوظة.", sample: "الأسعار ونسب الخصم تجريبية."
+      copy: "© ٢٠٢٦ كافيه ماد. جميع الحقوق محفوظة.", sample: "الأسعار ونسب الخصم تجريبية.", devBy: "تطوير:", devName: "DataDev · أميرحسين بساطي"
     },
     tr: {
       dir: "ltr", locale: "tr-TR", title: "Cafe Maad", brand: "Cafe Maad",
@@ -1362,7 +1366,7 @@ a.post:hover { transform: translateY(-3px); }
       wEyebrow: "Toptan sipariş", wTitle: "Kafeniz veya ofisiniz için toptan kahve?", wLead: "5 kg'dan başlayan kademeli fiyat, resmî fatura ve haftalık teslimat.", wCta: "Teklif iste",
       about: "Cafe Maad kahvesini her hafta kendisi kavurur; evler, ofisler ve kafeler için.",
       fPages: "Sayfalar", fShop: "Mağaza", fContact: "İletişim",
-      copy: "© 2026 Cafe Maad. Tüm hakları saklıdır.", sample: "Fiyatlar ve indirim oranları örnektir."
+      copy: "© 2026 Cafe Maad. Tüm hakları saklıdır.", sample: "Fiyatlar ve indirim oranları örnektir.", devBy: "Geliştirici:", devName: "DataDev · Amirhossein Basati"
     }
   };
 
