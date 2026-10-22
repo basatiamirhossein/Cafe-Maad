@@ -89,7 +89,7 @@
       wEyebrow: "سفارش عمده", wTitle: "قهوه‌ی عمده برای کافه، رستوران و دفتر کار؟", wLead: "قیمت پلکانی از ۵ کیلوگرم، فاکتور رسمی و ارسال منظم هفتگی.", wCta: "درخواست پیش‌فاکتور",
       about: "کافه ماد قهوه را هر هفته خودش برشت می‌دهد؛ برای خانه، دفتر و کافه.",
       fPages: "صفحه‌ها", fShop: "فروشگاه", fContact: "تماس با ما",
-      copy: "© ۱۴۰۵ کافه ماد. همه‌ی حقوق محفوظ است.", sample: "قیمت‌ها و درصدهای تخفیف نمونه‌اند."
+      copy: "© ۱۴۰۵ کافه ماد. همه‌ی حقوق محفوظ است.", sample: "قیمت‌ها و درصدهای تخفیف نمونه‌اند.", devBy: "توسعه‌دهنده:", devName: "DataDev · امیرحسین بساطی"
     },
     en: {
       dir: "ltr", locale: "en-US", title: "Cafe Maad", brand: "Cafe Maad",
@@ -181,7 +181,7 @@
       wEyebrow: "Wholesale", wTitle: "Wholesale coffee for your café or office?", wLead: "Tiered pricing from 5 kg, official invoices and weekly delivery.", wCta: "Request a quote",
       about: "Cafe Maad roasts its own coffee every week, for homes, offices and cafés.",
       fPages: "Pages", fShop: "Shop", fContact: "Contact",
-      copy: "© 2026 Cafe Maad. All rights reserved.", sample: "Prices and discount rates are samples."
+      copy: "© 2026 Cafe Maad. All rights reserved.", sample: "Prices and discount rates are samples.", devBy: "Developed by", devName: "DataDev · Amirhossein Basati"
     },
     ar: {
       dir: "rtl", locale: "ar-EG", title: "كافيه ماد", brand: "كافيه ماد",
@@ -273,7 +273,7 @@
       wEyebrow: "طلبات الجملة", wTitle: "قهوة بالجملة لمقهاك أو مكتبك؟", wLead: "أسعار متدرجة ابتداءً من ٥ كغ، وفاتورة رسمية، وتوصيل أسبوعي.", wCta: "اطلب عرض سعر",
       about: "يحمّص كافيه ماد قهوته بنفسه كل أسبوع، للمنازل والمكاتب والمقاهي.",
       fPages: "الصفحات", fShop: "المتجر", fContact: "اتصل بنا",
-      copy: "© ٢٠٢٦ كافيه ماد. جميع الحقوق محفوظة.", sample: "الأسعار ونسب الخصم تجريبية."
+      copy: "© ٢٠٢٦ كافيه ماد. جميع الحقوق محفوظة.", sample: "الأسعار ونسب الخصم تجريبية.", devBy: "تطوير:", devName: "DataDev · أميرحسين بساطي"
     },
     tr: {
       dir: "ltr", locale: "tr-TR", title: "Cafe Maad", brand: "Cafe Maad",
@@ -365,6 +365,6 @@
       wEyebrow: "Toptan sipariş", wTitle: "Kafeniz veya ofisiniz için toptan kahve?", wLead: "5 kg'dan başlayan kademeli fiyat, resmî fatura ve haftalık teslimat.", wCta: "Teklif iste",
       about: "Cafe Maad kahvesini her hafta kendisi kavurur; evler, ofisler ve kafeler için.",
       fPages: "Sayfalar", fShop: "Mağaza", fContact: "İletişim",
-      copy: "© 2026 Cafe Maad. Tüm hakları saklıdır.", sample: "Fiyatlar ve indirim oranları örnektir."
+      copy: "© 2026 Cafe Maad. Tüm hakları saklıdır.", sample: "Fiyatlar ve indirim oranları örnektir.", devBy: "Geliştirici:", devName: "DataDev · Amirhossein Basati"
     }
   };
