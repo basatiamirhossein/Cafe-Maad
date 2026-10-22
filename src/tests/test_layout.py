@@ -8,7 +8,7 @@ from playwright.async_api import async_playwright
 
 H = pathlib.Path(__file__).parent
 URL = (H.parent.parent / "index.html").as_uri()
-ROUTES = ["#/", "#/products", "#/products/gear", "#/products/mugs", "#/products/more", "#/order", "#/wholesale", "#/blog", "#/blog/01", "#/blog/07", "#/blog/17", "#/about", "#/contact"]
+ROUTES = ["#/", "#/products", "#/products/robusta", "#/products/arabica", "#/products/mix", "#/products/crema", "#/products/powder", "#/products/custom", "#/order", "#/wholesale", "#/blog", "#/blog/01", "#/blog/07", "#/blog/17", "#/about", "#/contact"]
 LANGS = ["fa", "en", "ar", "tr"]
 VIEWS = [(360, 740), (390, 844), (768, 1024), (1280, 800), (1440, 900)]
 if len(sys.argv) > 1 and sys.argv[1] == "quick":
